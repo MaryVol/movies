@@ -1,0 +1,15 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.container{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+header{
+    background-image: url(../../img/ddnshvy-5d166208-57a2-4e22-aed4-7b092564ccb7.jpg);
+    background-position: center;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    background-repeat: no-repeat;
+}

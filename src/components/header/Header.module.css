@@ -1,15 +1,107 @@
 *{
     font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
 }
 .container{
     padding-left: 20px;
     padding-right: 20px;
 }
 header{
-    background-image: url(../../img/ddnshvy-5d166208-57a2-4e22-aed4-7b092564ccb7.jpg);
+    background-image: url(../../img/bg.jpg);
     background-position: center;
     background-size: cover;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
     background-repeat: no-repeat;
+}
+h1{
+    text-transform: uppercase;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+}
+h3{
+    color: #f65261;
+    font-weight: 100;
+    margin-bottom: 50px;
+}
+.search{
+    width: 78%;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.452);
+    color: #ffffff;
+    height: 21px;
+    font-weight: 100;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.search:focus{
+    outline: none;
+}
+.search::placeholder{
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 14px;
+}
+.srcBtn{
+    font-weight: 100;
+    font-size: 14px;
+    background-color: #f65261;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: 0.5s;
+    border: #f65261 1px solid;
+    margin-bottom: 30px;
+}
+.srcBtn:focus{
+    outline: none;
+}
+.srcBtn:hover{
+    background-color: #ffffff00;
+    color: #f65261;
+    border: #f65261 1px solid;
+
+}
+.searcherWrapper{
+    text-align: center;
+}
+.filterWrapper span{
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.filterBtns input[type="radio"] {
+    display: none;
+  }
+  .filterBtns input[type="radio"]:checked + .box {
+    background-color: #f65261;
+  }
+.box{
+  width: 70px;
+  height: 20px;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.452);
+  transition: all 250ms ease;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+label:first-child .box{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+label:last-child .box{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.filterBtns{
+    display: inline-block;
+    margin-left: 6px;
+    margin-bottom: 20px;
+}
+.filterWrapper{
+    text-align: center;
 }

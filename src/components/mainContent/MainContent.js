@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './MainContent.modules.css';
+import styles from './MainContent.module.css';
 
-function MainContent(props) {
-    return <h1>Hello, {props.name}</h1>;
+function MainContent() {
+    return <h1></h1>;
   }
 
 export default MainContent;

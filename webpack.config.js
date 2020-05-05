@@ -36,6 +36,14 @@ module.exports = {
                   'css-loader'
                 ],
                 exclude: /\.module\.css$/
+              },
+              {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
               }
         ]
     },

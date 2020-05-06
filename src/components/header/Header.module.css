@@ -72,6 +72,7 @@ h3{
 .filterWrapper span{
     color: #ffffff;
     text-transform: uppercase;
+    font-weight: 300;
 }
 .filterBtns input[type="radio"] {
     display: none;
@@ -80,7 +81,7 @@ h3{
     background-color: #f65261;
   }
 .box{
-  width: 70px;
+  width: fit-content;
   height: 20px;
   padding: 10px;
   background-color: rgba(128, 128, 128, 0.452);

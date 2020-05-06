@@ -5,18 +5,18 @@ class Filter extends React.Component {
     render() { 
         return ( 
                 <div className={styles.filterWrapper}>
-                    <span>search by:</span>
+                    <span>{this.props.name}</span>
                     <div className={styles.filterBtns}>
                         <label>
                             <input type="radio" name="radio" checked/>
                             <div className={styles.box}>
-                                <span>Title</span>
+                                <span>{this.props.firstval}</span>
                             </div>
                         </label>
                         <label>
                             <input type="radio" name="radio"/>
                             <div className={styles.box}>
-                                <span>Genre</span>
+                                <span>{this.props.secondval}</span>
                             </div>
                         </label>
                     </div>

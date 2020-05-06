@@ -10,6 +10,9 @@ function MainContent() {
         <div className={styles.container}>
           <Movie />
         </div>
+        <div className={styles.footer}>
+            <h3><b>netflix</b>roulette</h3>
+        </div>
       </main>
     );
   }

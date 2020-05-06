@@ -1,3 +1,33 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.movieWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.cardWrapper{
+    color: #929292;
+}
+h5{
+    border: 1px #b8b8b8 solid;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 3px;
+    font-weight: 100;
+}
+.footer{
+    background-color: #545454;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.footer h3{
+    margin: 0;
+}

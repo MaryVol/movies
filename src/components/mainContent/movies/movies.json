@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "title": "Kill Bill: Vol2",
+        "release_date": "2004",
+        "poster_path": "./img/kill-bill-volume-1-vintage-movie-poster-original-french-1-panel-47x63-6380.jpg",
+        "overview": "film description",
+        "runtime": "154min",
+        "rating": 4.2,
+        "genre": "Action & Adventure"
+    },
+    {
+        "id": 1,
+        "title": "Kill Bill: Vol1",
+        "release_date": "2003",
+        "poster_path": "./img/kill-bill-2.jpg",
+        "overview": "film description",
+        "runtime": "160min",
+        "rating": 4.0,
+        "genre": "Action & Adventure"
+    }
+]

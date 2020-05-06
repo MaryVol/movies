@@ -11,6 +11,15 @@
     margin-top: 8px;
     color: #ffffff;
 }
+main{
+    background-color: #232323;
+}
+.movieWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
 
 

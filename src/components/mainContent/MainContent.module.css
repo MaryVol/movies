@@ -31,3 +31,7 @@ h5{
 .footer h3{
     margin: 0;
 }
+.cardWrapper img{
+    width: auto;
+    height: 333px;
+}

@@ -5,13 +5,13 @@ class Toggle extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            active: true,
+            value1: this.props.firstval,
           }
         this.handleChange = this.handleChange.bind(this);
     }
     handleChange() {
         this.setState(prevState => ({
-          value: !prevState.value1
+          value2: !prevState.value1
         }));
       }
 
@@ -22,13 +22,13 @@ class Toggle extends React.Component {
                     <span>{this.props.name}</span>
                     <div className={styles.filterBtns}>
                         <label>
-                            <input type="radio" value1={this.state.value1} onChange={this.handleChange}  />
+                            <input type="radio" value='value1' checked={this.state.value1} onClick={this.handleChange}  />
                             <div className={styles.box}>
                                 <span>{this.props.firstval}</span>
                             </div>
                         </label>
                         <label>
-                            <input type="radio" value2={this.state.value1 ? false:true} />
+                            <input type="radio" value='value2' checked={this.state.value1 ? false:true} onClick={this.handleChange} />
                             <div className={styles.box}>
                                 <span>{this.props.secondval}</span>
                             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css';
 import Searcher from './Searcher';
-import Filter from './Filter';
+import Toggle from './Toggle';
 
 class Header extends React.Component {
     render() { 
@@ -11,7 +11,7 @@ class Header extends React.Component {
                     <h3><b>netflix</b>roulette</h3>
                     <h1>find your movie</h1>
                     <Searcher />
-                    <Filter name="search by:" firstval="title" secondval="genre"/>
+                    <Toggle name="search by:" firstval="title" secondval="genre"/>
                 </div>
             </header>
          );

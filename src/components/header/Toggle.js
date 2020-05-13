@@ -1,26 +1,19 @@
 import React from 'react';
 import styles from './Header.module.css';
 
-class Filter extends React.Component {
+class Toggle extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            check1: true,
-            check2: false,
-        }
+            active: true,
+          }
+        this.handleChange = this.handleChange.bind(this);
     }
-    changeVal(){
-        this.setState({
-            check1: false,
-            check2: true,
-        })
-    }
-    changeValBack(){
-        this.setState({
-            check1: true,
-            check2: false,
-        })
-    }
+    handleChange() {
+        this.setState(prevState => ({
+          value: !prevState.value1
+        }));
+      }
 
 
     render() { 
@@ -29,13 +22,13 @@ class Filter extends React.Component {
                     <span>{this.props.name}</span>
                     <div className={styles.filterBtns}>
                         <label>
-                            <input type="radio" value="check1" checked={this.state.check1} onClick={()=> this.changeValBack()}/>
+                            <input type="radio" value1={this.state.value1} onChange={this.handleChange}  />
                             <div className={styles.box}>
                                 <span>{this.props.firstval}</span>
                             </div>
                         </label>
                         <label>
-                            <input type="radio" value="check2" checked={this.state.check2} onClick={()=> this.changeVal()} />
+                            <input type="radio" value2={this.state.value1 ? false:true} />
                             <div className={styles.box}>
                                 <span>{this.props.secondval}</span>
                             </div>
@@ -46,4 +39,4 @@ class Filter extends React.Component {
     }
 }
  
-export default Filter;
+export default Toggle;

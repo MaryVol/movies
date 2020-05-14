@@ -14,7 +14,7 @@ class Header extends React.Component {
             active: this.props.firstval,
             checked: searchByOptions[0]
           }
-          this.handleChange = this.handleChange.bind(this);
+        //   this.handleChange = this.handleChange.bind(this);
     }
 
     render() { 

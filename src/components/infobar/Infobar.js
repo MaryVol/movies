@@ -14,7 +14,7 @@ class Infobar extends React.Component {
         active: this.props.firstval,
         checked: sortOptions[0]
       }
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
 }
   render(){
     return (

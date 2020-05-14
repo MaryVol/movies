@@ -16,13 +16,13 @@ class Toggle extends React.Component {
                     <span>{this.props.value}</span>
                     <div className={styles.filterBtns}>
                         <label>
-                            <input type="radio" checked={this.props.value === this.props.options} onClick={this.handleChange}  />
+                            <input type="radio" checked={this.props.value === this.props.options} onClick={this.props.onChange}  />
                             <div className={styles.box}>
                                 <span>{this.props.options[0]}</span>
                             </div>
                         </label>
                         <label>
-                            <input type="radio" checked={this.props.value ? false:true} onClick={this.handleChange} />
+                            <input type="radio" checked={this.props.value ? false:true} onClick={this.props.onChange} />
                             <div className={styles.box}>
                                 <span>{this.props.options[1]}</span>
                             </div>

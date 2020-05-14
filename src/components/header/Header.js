@@ -10,7 +10,7 @@ class Header extends React.Component {
             searchBy: 'Search by',
             searchByOptions: ['Release date', 'Rating'],
             active: this.props.firstval,
-            value: 'Realease date', checked
+            checked: searchByOptions[0]
           }
           this.handleChange = this.handleChange.bind(this);
     }

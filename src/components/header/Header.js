@@ -4,6 +4,16 @@ import Searcher from './Searcher';
 import Toggle from './Toggle';
 
 class Header extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            searchBy: 'Search by',
+            searchByOptions: ['Release date', 'Rating'],
+            active: this.props.firstval,
+          }
+          this.handleChange = this.handleChange.bind(this);
+    }
+
     render() { 
         return ( 
             <header>

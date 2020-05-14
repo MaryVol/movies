@@ -10,6 +10,7 @@ class Infobar extends React.Component {
         sortBy: 'Sort by',
         sortOptions: [ 'Title', 'Genre' ],
         active: this.props.firstval,
+        value: 'title', checked
       }
     this.handleChange = this.handleChange.bind(this);
 }

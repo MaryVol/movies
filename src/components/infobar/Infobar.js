@@ -8,7 +8,8 @@ function Infobar() {
         <div className={styles.infoBar}>
           <div className={styles.container}>
             <Counter />
-            <Toggle name="sort by:" firstval="release date" secondval="rating" active="value1"/>
+            <Toggle options={this.state.sortOptions} value={this.state.sortBy} onChange={sortBy => this.setState({ sortBy })} />
+            {/* <Toggle name="sort by:" firstval="release date" secondval="rating" active="firstval" options={[ 'Title', 'Genre' ]}/> */}
           </div>
         </div>
     );

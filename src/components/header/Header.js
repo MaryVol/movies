@@ -3,6 +3,8 @@ import styles from './Header.module.css';
 import Searcher from './Searcher';
 import Toggle from './Toggle';
 
+let searchByOptions = ['Release date', 'Rating'];
+
 class Header extends React.Component {
     constructor(props){
         super(props)

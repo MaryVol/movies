@@ -3,6 +3,8 @@ import styles from './infobar.module.css';
 import Counter from './Counter';
 import Toggle from '../header/Toggle';
 
+let sortOptions = [ 'Title', 'Genre' ];
+
 class Infobar extends React.Component {
   constructor(props){
     super(props)

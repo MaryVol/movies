@@ -10,7 +10,7 @@ class Infobar extends React.Component {
     super(props)
     this.state = {
         names: 'Sort by',
-        sortBy: '',
+        sortBy: 'Title',
         sortOptions: [ 'Title', 'Genre' ],
         active: this.props.firstval,
         checked: sortOptions[0]

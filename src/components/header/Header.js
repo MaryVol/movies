@@ -10,7 +10,7 @@ class Header extends React.Component {
         super(props)
         this.state = {
             names: 'Search by',
-            searchBy: '',
+            searchBy: 'Release date',
             searchByOptions: ['Release date', 'Rating'],
             active: this.props.firstval,
             checked: searchByOptions[0]

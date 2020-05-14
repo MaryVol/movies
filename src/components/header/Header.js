@@ -11,7 +11,7 @@ class Header extends React.Component {
                     <h3><b>netflix</b>roulette</h3>
                     <h1>find your movie</h1>
                     <Searcher />
-                    <Toggle name="search by:" firstval="title" secondval="genre"/>
+                    <Toggle options={this.state.searchByOptions} value={this.state.searchBy} onChange={searchBy => this.setState({ searchBy })} />
                 </div>
             </header>
          );

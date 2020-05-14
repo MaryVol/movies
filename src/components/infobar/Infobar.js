@@ -9,7 +9,8 @@ class Infobar extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-        sortBy: 'Sort by',
+        names: 'Sort by',
+        sortBy: '',
         sortOptions: [ 'Title', 'Genre' ],
         active: this.props.firstval,
         checked: sortOptions[0]
@@ -21,7 +22,7 @@ class Infobar extends React.Component {
         <div className={styles.infoBar}>
           <div className={styles.container}>
             <Counter />
-            <Toggle options={this.state.sortOptions} value={this.state.sortBy} onChange={sortBy => this.setState({ sortBy })} />
+            <Toggle name={this.state.names} options={this.state.sortOptions} value={this.state.sortBy} onChange={sortBy => this.setState({ sortBy })} />
           </div>
         </div>
     );

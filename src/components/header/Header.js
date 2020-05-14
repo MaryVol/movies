@@ -9,7 +9,8 @@ class Header extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            searchBy: 'Search by',
+            names: 'Search by',
+            searchBy: '',
             searchByOptions: ['Release date', 'Rating'],
             active: this.props.firstval,
             checked: searchByOptions[0]
@@ -25,7 +26,7 @@ class Header extends React.Component {
                     <h3><b>netflix</b>roulette</h3>
                     <h1>find your movie</h1>
                     <Searcher />
-                    <Toggle options={this.state.searchByOptions} value={this.state.searchBy} onChange={searchBy => this.setState({ searchBy })} />
+                    <Toggle name={this.state.names} options={this.state.searchByOptions} value={this.state.searchBy} onChange={searchBy => this.setState({ searchBy })} />
                 </div>
             </header>
          );

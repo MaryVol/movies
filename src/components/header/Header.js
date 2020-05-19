@@ -12,10 +12,7 @@ class Header extends React.Component {
             names: 'Search by',
             searchBy: 'Release date',
             searchByOptions: ['Release date', 'Rating'],
-            // active: this.props.firstval,
-            // checked: searchByOptions[0]
           }
-        //   this.handleChange = this.handleChange.bind(this);
     }
     
 

@@ -42,7 +42,7 @@ render(){
         <Infobar />
         <div className={styles.container}>
           {this.state.currentMovie ? 
-          <MoviePage movie={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })} onChange={currentMovie => this.setState({ currentMovie: undefined })}/> : 
+          <MoviePage movie={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })} onReturnBack={currentMovie => this.setState({ currentMovie: undefined })}/> : 
           <Movie movies={this.state.movies} onChange={currentMovie => this.setState({ currentMovie })}/>}
         </div>
         <div className={styles.footer}>

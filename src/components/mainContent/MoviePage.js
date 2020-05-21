@@ -11,7 +11,7 @@ class MoviePage extends React.Component {
             <div className={styles.movieBageWrapper} >
                 <div className={styles.container}>
                     <h3><b>netflix</b>roulette</h3> 
-                    <p className={styles.arrow} onClick={movie => this.setState({ movie: undefined })}><i className="fas fa-chevron-left"></i>Back</p>
+                    <p className={styles.arrow} onClick={() => this.props.onChange(movie)}><i className="fas fa-chevron-left"></i>Back</p>
                     <div className={styles.movieCard}>
                         <img src={movie.poster_path} alt="movie poster"/>
                         <div className={styles.textWrap}>

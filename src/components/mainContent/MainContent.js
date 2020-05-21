@@ -35,15 +35,16 @@ class MainContent extends React.Component {
     ]
   }
 }
+
 render(){
     return (
       <main>
         <Infobar />
-        <div className={styles.container} visible={this.props.movies === currentMovie} onClick={() => this.props.onChange(currentMovie)}>
-          <Movie onChange={currentMovie => this.setState({ currentMovie })}/>
+        <div className={styles.container}>
+          {this.state.currentMovie ? 
+          <MoviePage movie={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })}/> : 
+          <Movie movies={this.state.movies} onChange={currentMovie => this.setState({ currentMovie })}/>}
         </div>
-        <MoviePage arr={this.state.movies} img={this.state.movies[0].poster_path} mtitle={this.state.movies[0].title} rate={this.state.movies[0].rating} date={this.state.movies[0].release_date} time={this.state.movies[0].runtime} opis={this.state.movies[0].description} value={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })}/>
-        <MoviePage img={this.state.movies[1].poster_path} mtitle={this.state.movies[1].title} rate={this.state.movies[1].rating} date={this.state.movies[1].release_date} time={this.state.movies[1].runtime} opis={this.state.movies[1].description} value={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })}/>
         <div className={styles.footer}>
             <h3><b>netflix</b>roulette</h3>
         </div>

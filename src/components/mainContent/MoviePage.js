@@ -1,20 +1,23 @@
 import React from 'react';
 import styles from './MainContent.module.css';
+import MainContent from './MainContent';
 
 
 class MoviePage extends React.Component {
 
     render(){
+        let movie = this.props.movie
         return (
-            <div className={styles.movieBageWrapper} visible={this.props.value === arr} onClick={() => this.props.onChange(arr)}>
+            <div className={styles.movieBageWrapper} >
                 <div className={styles.container}>
-                    <h3><b>netflix</b>roulette</h3>
+                    <h3><b>netflix</b>roulette</h3> 
+                    <p className={styles.arrow} onClick={movie => this.setState({ movie: undefined })}><i className="fas fa-chevron-left"></i>Back</p>
                     <div className={styles.movieCard}>
-                        <img src={this.props.img} alt="movie poster"/>
+                        <img src={movie.poster_path} alt="movie poster"/>
                         <div className={styles.textWrap}>
-                            <h2>{this.props.mtitle} <span className={styles.rating}>{this.props.rate}</span></h2>
-                            <p><span className={styles.number}>{this.props.date}</span>year<span className={styles.number}>{this.props.time}</span>min</p>
-                            <p>{this.props.opis}</p>
+                            <h2>{movie.title} <span className={styles.rating}>{movie.rating}</span></h2>
+                            <p><span className={styles.number}>{movie.release_date}</span>year<span className={styles.number}>{movie.runtime}</span>min</p>
+                            <p>{movie.description}</p>
                         </div>
                     </div> 
                 </div>

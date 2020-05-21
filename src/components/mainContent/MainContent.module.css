@@ -1,10 +1,6 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
-.container{
-    padding-left: 10px;
-    padding-right: 10px;
-}
 .movieWrapper{
     display: flex;
     flex-direction: row;
@@ -44,6 +40,8 @@ h5{
     background-attachment: fixed;
     padding-bottom: 30px;
     padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .movieBageWrapper img{
     width: auto;
@@ -95,3 +93,11 @@ h5{
 .textWrap{
     margin-left: 60px;
 }
+.arrow{
+    color: #f65261;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 100;
+    cursor: pointer;
+}
+

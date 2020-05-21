@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './MainContent.module.css';
-import MoviesData from './movies/movies.json';
 
 
-function Movie() {
+function Movie(props) {
     return (
         <div className={styles.movieWrapper}>
-          {MoviesData.map((mData, id)=>{
-              return <div className={styles.cardWrapper} key={mData.id}>
+          {props.movies.map((mData, id)=>{
+              return <div className={styles.cardWrapper} key={mData.id} onClick={() => props.onChange(mData)}>
                 <img  src={mData.poster_path}></img>
                 <h4>{mData.title}</h4>
                 <small>{mData.genre}</small>

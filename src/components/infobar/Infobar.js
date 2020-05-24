@@ -15,21 +15,37 @@ class Infobar extends React.Component {
         names: 'Sort by',
         sortBy: 'Title',
         sortOptions: [ 'Title', 'Genre' ],
-        MovieData: {},
+        MovieList: [],
+        isSorted: false,
       }
 }
 sortByTitle () {
-  const {MovieData} = this.state
-  let newMovieData = MovieData
-  newPostList = postList.sort((a, b) => a.title > b.title)
+  const {MovieList} = this.state
+  let newMovieList = MovieList
+  if (this.state.isSorted == false){
+    newMovieList = MovieList.sort((a, b) => a.title > b.title)
+  }
+  this.setState({
+    isSorted: !this.state.isSorted,
+    MovieList: newMovieList
+  })
 }
-
+toggleSortTitle (event) {
+  this.sortByTitle()
+}
+componentDidMount () {
+  const MovieList = MovieData
+  this.setState({
+    MovieList: MovieList,
+    isSorted: true,
+  })
+}
   render(){
     return (
         <div className={styles.infoBar}>
           <div className={styles.container}>
             <Counter />
-            <Toggle name={this.state.names} options={this.state.sortOptions} value={this.state.sortBy} onChange={sortBy => this.setState({ sortBy })} />
+            <Toggle onClick={this.toggleSortTitle} name={this.state.names} options={this.state.sortOptions} value={this.state.sortBy} onChange={sortBy => this.setState({ sortBy })} />
           </div>
         </div>
     );

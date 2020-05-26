@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './MainContent.module.css';
 import Infobar from '../infobar/Infobar';
-import Movie from './Movie';
-import MoviePage from './MoviePage';
+import MovieList from './MovieList';
 import MovieData from './movies/movies.json';
+import MoviesPage from '../MoviesPage';
+import MoviePage from '../MoviePage';
 
 class MainContent extends React.Component {
 
@@ -11,31 +12,17 @@ class MainContent extends React.Component {
     super(props)
     this.state = {
         currentMovie: undefined,
-        MovieList: [],
+        movieList: MovieData,
   }
 }
 
-componentDidMount () {
-  const MovieList = MovieData
-  this.setState({
-    MovieList: MovieList
-  })
-}
-
 render(){
-  const {MovieList} = this.state
+  const {movieList} = this.state
+  if (this.state.currentMovie){
+    return <MoviePage movie={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })} onReturnBack={currentMovie => this.setState({ currentMovie: undefined })}/>
+  }
     return (
-      <main>
-        <Infobar />
-        <div className={styles.container}>
-          {this.state.currentMovie ? 
-          <MoviePage movie={this.state.currentMovie} onChange={currentMovie => this.setState({ currentMovie })} onReturnBack={currentMovie => this.setState({ currentMovie: undefined })}/> : 
-          <Movie movies={MovieList} onChange={currentMovie => this.setState({ currentMovie })}/>}
-        </div>
-        <div className={styles.footer}>
-            <h3><b>netflix</b>roulette</h3>
-        </div>
-      </main>
+          <MoviesPage movies={movieList} onChange={currentMovie => this.setState({ currentMovie })}/>
     );
   }
 }

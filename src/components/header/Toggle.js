@@ -9,11 +9,11 @@ class Toggle extends React.Component {
                 <div className={styles.filterWrapper}>
                     <span>{this.props.name}</span>
                     <div className={styles.filterBtns}>
-                        {this.props.options.map((name) => {
-                        return <label key={name}>
-                            <input type="radio" checked={this.props.value === name} onClick={() => this.props.onChange(name)} />
+                        {this.props.options.map((option) => {
+                        return <label key={option.value}>
+                            <input type="radio" checked={this.props.value === option.value} onClick={() => this.props.onChange(option.value)} />
                             <div className={styles.box}>
-                                <span>{name}</span>
+                                <span>{option.displayName}</span>
                             </div>
                         </label>
                         })}

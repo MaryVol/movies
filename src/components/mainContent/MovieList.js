@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MainContent.module.css';
 
 
-function Movie(props) {
+function MovieList(props) {
     return (
         <div className={styles.movieWrapper}>
           {props.movies.map((mData, id)=>{
@@ -18,4 +18,4 @@ function Movie(props) {
     );
   }
 
-export default Movie;
+export default MovieList;

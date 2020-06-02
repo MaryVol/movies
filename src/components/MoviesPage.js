@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './mainContent/MainContent.module.css';
 import Infobar from './infobar/Infobar';
 import MovieList from './mainContent/MovieList';
-import MovieData from './mainContent/movies/movies.json';
 
 class MoviesPage extends React.Component {
 

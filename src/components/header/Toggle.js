@@ -11,7 +11,7 @@ class Toggle extends React.Component {
                     <div className={styles.filterBtns}>
                         {this.props.options.map((option) => {
                         return <label key={option.value}>
-                            <input type="radio" checked={this.props.value === option.value} onClick={() => this.props.onChange(option.value)} />
+                            <input type="radio" checked={this.props.value === option.value} onChange={() => this.props.onChange(option.value)} />
                             <div className={styles.box}>
                                 <span>{option.displayName}</span>
                             </div>

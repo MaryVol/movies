@@ -12,7 +12,7 @@ class Header extends React.Component {
             names: 'Search by',
             searchBy: 'release_date',
             searchByOptions: [{value:"release_date", displayName:'Release date'}, 
-                                {value:"rating", displayName:'Rating'}],
+                            {value:"rating", displayName:'Rating'}],
           }
     }
     

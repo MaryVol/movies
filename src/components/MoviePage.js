@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./mainContent/MainContent.module.css";
+import styles from "./MainContent.module.css";
 
 class MoviePage extends React.Component {
   render() {

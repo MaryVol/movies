@@ -1,7 +1,7 @@
 import React from "react";
 import MovieData from "./movies/movies.json";
-import MoviesPage from "../MoviesPage";
-import MoviePage from "../MoviePage";
+import MoviesPage from "./MoviesPage";
+import MoviePage from "./MoviePage";
 
 class MainContent extends React.Component {
   constructor(props) {

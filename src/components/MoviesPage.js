@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./mainContent/MainContent.module.css";
-import MovieList from "./mainContent/MovieList";
-import Counter from "./infobar/Counter";
-import Toggle from "./header/Toggle";
-import styless from "../components/infobar/infobar.module.css";
+import styles from "./MainContent.module.css";
+import MovieList from "./MovieList";
+import Counter from "./Counter";
+import Toggle from "./Toggle";
+import styless from "./infobar.module.css";
 
 const sortOptions = [
   { value: "title", displayName: "Title" },

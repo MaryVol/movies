@@ -11,7 +11,10 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
-    }
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/setuptests.js"
+    ]
   },
   "author": "MaryVol",
   "license": "ISC",
@@ -36,6 +39,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.10.1",
     "core-js": "^3.6.5",
     "identity-obj-proxy": "^3.0.0",
     "prop-types": "^15.7.2",

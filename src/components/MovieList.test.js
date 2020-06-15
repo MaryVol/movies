@@ -1,7 +1,6 @@
 import MovieList from "./MovieList";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import MoviePage from "./MoviePage";
 
 let movies = {
   mData: [
@@ -102,13 +101,9 @@ let movies = {
 test("movie render", () => {
   let onclick = jest.fn();
   render(
-    <div>
-      <MovieList
-        movies={movies.mData}
-        onClick={onclick}
-      />
-      <MoviePage movie={movies.mData[0]}/>
-    </div>
+      <MovieList movies={movies.mData} onChange={onclick} />
   );
-  expect(screen.getByText(fireEvent.click(screen.getByText(/Kill Bill: Vol2/))).toBe(movies.mData[0].title));
-  });
+  expect(screen.getByText(movies.mData[0].title)).toBeInTheDocument()
+  fireEvent.click(screen.getByText(movies.mData[0].title));
+  expect(onclick).toHaveBeenCalledWith(movies.mData[0]);
+});

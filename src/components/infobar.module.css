@@ -1,0 +1,31 @@
+.infoBar{
+    background-color: #545454;
+    padding-top: 20px;
+}
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+}
+.counterWrapper p{
+    margin-top: 8px;
+    color: #ffffff;
+}
+main{
+    background-color: #232323;
+}
+.movieWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+

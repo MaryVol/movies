@@ -9,7 +9,7 @@ const initialState = {
 
 const ToggleReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "TOGGLE_BUTTON":
+    case "TOGGLE_CHANGE":
       return state.searchBy;
     default:
       return state;

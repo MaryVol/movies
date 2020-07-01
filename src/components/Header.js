@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import Searcher from "./Searcher";
 import Toggle from "./Toggle";
 import { connect } from "react-redux";
+import ToggleReducer from "./ToggleReducer";
 
 let searchByOptions = ["Release date", "Rating"];
 
@@ -42,13 +43,15 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    toggle: ToggleReducer.state,
+    name: state.names,
+    options: state.searchByOptions,
+    value: state.searchBy
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    : () => dispatch(),
+    toggleChange: () => {store.dispatch(toggleChange())},
   };
 };
 

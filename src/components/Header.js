@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Header.module.css";
 import Searcher from "./Searcher";
 import Toggle from "./Toggle";
+import { connect } from "react-redux";
 
 let searchByOptions = ["Release date", "Rating"];
 
@@ -39,4 +40,16 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    toggle: ToggleReducer.state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    : () => dispatch(),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

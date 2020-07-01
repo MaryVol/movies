@@ -43,16 +43,14 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.names,
-    options: state.searchByOptions,
-    value: state.searchBy
+    name: ToggleReducer.state.names,
+    options: ToggleReducer.state.searchByOptions,
+    value: ToggleReducer.state.searchBy
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleChange: () => {store.dispatch(toggleChange())},
-  };
-};
+const mapDispatchToProps = {
+  toggleChange,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

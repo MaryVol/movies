@@ -5,7 +5,10 @@ import Toggle from "./Toggle";
 import { connect } from "react-redux";
 import ToggleReducer from "./ToggleReducer";
 
-let searchByOptions = ["Release date", "Rating"];
+let searchByOptions = [
+  { value: "release_date", displayName: "Release date" },
+  { value: "rating", displayName: "Rating" },
+];
 
 class Header extends React.Component {
   constructor(props) {
@@ -43,14 +46,16 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: ToggleReducer.state.names,
-    options: ToggleReducer.state.searchByOptions,
-    value: ToggleReducer.state.searchBy
+    name: state.names,
+    options: state.searchByOptions,
+    value: state.searchBy
   };
 };
 
-const mapDispatchToProps = {
-  toggleChange,
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleChange: () => {store.dispatch(toggleChange())},
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

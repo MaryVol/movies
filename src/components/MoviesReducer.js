@@ -1,12 +1,35 @@
 import MovieData from "./movies/movies.json";
+import MoviePage from "./MoviePage";
 
 const initialState = {
-  currentMovie: undefined,
+  currentMovie: null,
   movieList: MovieData,
-  sortBy: "title",
+  visibleMoviesId: [],
 };
 
 const MoviesReducer = (state = initialState, action) => {
-  return state;
+  switch(action.type){
+    case "CHOOSE_MOVIE":
+      return {
+        ...state,
+        selectedMovieId: action.id
+      }
+      default:
+        return state
+  }
 };
+
+//ACTION creator choosing movie by user
+
+export const chooseMovie = (id) => {
+  return{
+    type: "CHOOSE_MOVIE",
+    id,
+  }
+}
+export const CHOOSE_MOVIE='CHOOSE_MOVIE';
 export default MoviesReducer;
+
+
+
+

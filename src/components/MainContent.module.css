@@ -42,11 +42,6 @@ h5 {
   height: 333px;
 }
 .movieBageWrapper {
-  background-image: url(../img/bg.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   padding-bottom: 30px;
   padding-top: 10px;
   padding-left: 10px;

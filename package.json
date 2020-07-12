@@ -43,6 +43,7 @@
     "@testing-library/jest-dom": "^5.10.1",
     "core-js": "^3.6.5",
     "identity-obj-proxy": "^3.0.0",
+    "jquery": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

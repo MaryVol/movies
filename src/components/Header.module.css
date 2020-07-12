@@ -57,6 +57,7 @@ h3 {
   transition: 0.5s;
   border: #f65261 1px solid;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 .srcBtn:focus {
   outline: none;

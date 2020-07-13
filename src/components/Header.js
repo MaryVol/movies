@@ -3,7 +3,6 @@ import styles from "./Header.module.css";
 import Searcher from "./Searcher";
 import Toggle from "./Toggle";
 import { connect } from "react-redux";
-import ToggleReducer from "./ToggleReducer";
 
 let searchByOptions = [
   { value: "release_date", displayName: "Release date" },

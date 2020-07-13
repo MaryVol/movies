@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, reducer, combineReducers } from "redux";
-import allReducers from "./components/allReducers";
-import chooseMovie from "./components/MoviesReducer";
-import toggleChange from "./components/ToggleReducer";
+import { createStore, applyMiddleware, reducer } from "redux";
+import MoviesReducer from "./reducers/MoviesReducer";
 
 const store = createStore(
-  allReducers,
+  MoviesReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

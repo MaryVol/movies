@@ -1,4 +1,4 @@
-import MovieData from "./movies/movies.json";
+import MovieData from "../components/movies/movies.json";
 
 const initialState = {
   currentMovie: null,

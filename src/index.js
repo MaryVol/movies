@@ -3,15 +3,12 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, reducer } from "redux";
-import MoviesReducer from "./reducers/MoviesReducer";
+import reducer from "./reducers/index";
 
 const store = createStore(
-  MoviesReducer,
+  reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
-// store.dispatch(chooseMovie(id));
-// store.dispatch(toggleChange(value));
 
 ReactDOM.render(
   <Provider store={store}>

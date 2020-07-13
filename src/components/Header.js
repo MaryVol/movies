@@ -10,7 +10,6 @@ let searchByOptions = [
 ];
 
 class Header extends React.Component {
-
   render() {
     return (
       <header>
@@ -21,10 +20,10 @@ class Header extends React.Component {
           <h1>find your movie</h1>
           <Searcher />
           <Toggle
-            name={names}
+            name="Search by"
             options={searchByOptions}
-            value={searchBy}
-            onChange={(searchBy) => this.setState({ searchBy })}
+            value={this.props.searchBy}
+            onChange={() => ({})}
           />
         </div>
       </header>
@@ -34,7 +33,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    searchBy: state.searchBy
+    searchBy: state.searchBy,
   };
 };
 

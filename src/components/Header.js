@@ -10,17 +10,17 @@ let searchByOptions = [
 ];
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      names: "Search by",
-      searchBy: "release_date",
-      searchByOptions: [
-        { value: "release_date", displayName: "Release date" },
-        { value: "rating", displayName: "Rating" },
-      ],
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     names: "Search by",
+  //     searchBy: "release_date",
+  //     searchByOptions: [
+  //       { value: "release_date", displayName: "Release date" },
+  //       { value: "rating", displayName: "Rating" },
+  //     ],
+  //   };
+  // }
 
   render() {
     return (
@@ -45,15 +45,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.names,
-    options: state.searchByOptions,
-    value: state.searchBy
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleChange: () => {store.dispatch(toggleChange())},
+    searchBy: state.searchBy
   };
 };
 

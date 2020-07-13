@@ -12,8 +12,8 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-store.dispatch(chooseMovie(id));
-store.dispatch(toggleChange(value));
+// store.dispatch(chooseMovie(id));
+// store.dispatch(toggleChange(value));
 
 ReactDOM.render(
   <Provider store={store}>

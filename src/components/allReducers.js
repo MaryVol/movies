@@ -4,7 +4,7 @@ import MoviesReducer from "./MoviesReducer";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
-    searchParams: ToggleReducer,
+    // searchParams: ToggleReducer,
     moviesData: MoviesReducer
 });
 

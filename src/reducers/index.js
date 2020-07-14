@@ -4,21 +4,21 @@ const initialState = {
   currentMovie: null,
   movieList: MovieData,
   visibleMoviesId: [],
-  searchBy: "release_date",
-  sortBy: "title",
+  sortBy: "release_date",
+  searchBy: "title",
   searchQuery: "",
 };
 
 const reducer = (state = initialState, action) => {
-  switch(action.type){
-    case "CHANGE_SEARCH_BY":
-      return{
+  switch (action.type) {
+    case "CHANGE_SORT_BY":
+      return {
         ...state,
-        searchBy: action.searchBy,
+        sortBy: action.sortBy,
       };
-    default: return state;
+    default:
+      return state;
   }
-  
 };
 
 export default reducer;

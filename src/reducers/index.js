@@ -10,7 +10,15 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  return state;
+  switch(action.type){
+    case "CHANGE_SEARCH_BY":
+      return{
+        ...state,
+        searchBy: action.searchBy,
+      };
+    default: return state;
+  }
+  
 };
 
 export default reducer;

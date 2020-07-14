@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
 
-
 class Toggle extends React.Component {
   render() {
     return (

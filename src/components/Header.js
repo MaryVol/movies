@@ -23,7 +23,12 @@ class Header extends React.Component {
             name="Search by"
             options={searchByOptions}
             value={this.props.searchBy}
-            onChange={() => ({})}
+            onChange={(searchBy) =>
+              this.props.dispatch({
+                type: "CHANGE_SEARCH_BY",
+                searchBy: searchBy,
+              })
+            }
           />
         </div>
       </header>

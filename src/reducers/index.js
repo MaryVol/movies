@@ -4,8 +4,8 @@ const initialState = {
   currentMovie: null,
   movieList: MovieData,
   visibleMoviesId: [],
-  sortBy: "title",
-  searchBy: "release_date",
+  sortBy: "release_date",
+  searchBy: "title",
   searchQuery: "",
 };
 

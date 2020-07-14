@@ -5,8 +5,8 @@ import Toggle from "./Toggle";
 import { connect } from "react-redux";
 
 let searchByOptions = [
-  { value: "release_date", displayName: "Release date" },
-  { value: "rating", displayName: "Rating" },
+  { value: "title", displayName: "Title" },
+  { value: "genre", displayName: "Genre" },
 ];
 
 class Header extends React.Component {

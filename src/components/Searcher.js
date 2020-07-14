@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import $ from "jquery";
+import { connect } from "react-redux";
 
 class Searcher extends React.Component {
   performSearch(searchTerm) {
@@ -26,11 +27,17 @@ class Searcher extends React.Component {
           type="text"
           className={styles.search}
           placeholder="Enter a movie"
+          value={this.props.searchQuery}
+
         />
         <button
           className={styles.srcBtn}
           type="submit"
-          onSubmit={this.performSearch()}
+          onClick={(searchQuery) =>
+            this.props.dispatch({
+              type: "SEARCH",
+              searchQuery: searchQuery,
+            })}
         >
           Search
         </button>
@@ -39,4 +46,11 @@ class Searcher extends React.Component {
   }
 }
 
-export default Searcher;
+const mapStateToProps = (state) => {
+  return {
+    searchQuery: state.searchQuery,
+  };
+};
+
+export default connect(mapStateToProps)(Searcher);
+

@@ -9,9 +9,7 @@ class MainContent extends React.Component {
     super(props);
     this.toggleSort = this.toggleSort.bind(this);
     this.state = {
-      currentMovie: undefined,
       movieList: MovieData,
-      sortBy: "title",
     };
   }
   toggleSort(sortBy) {
@@ -31,13 +29,21 @@ class MainContent extends React.Component {
 
   render() {
     const { movieList } = this.state;
-    if (this.state.currentMovie) {
+    if (this.props.currentMovie) {
       return (
         <MoviePage
-          movie={this.state.currentMovie}
-          onChange={(currentMovie) => this.setState({ currentMovie })}
+          movie={this.props.currentMovie}
+          onChange={(currentMovie) =>
+            this.props.dispatch({
+              type: "SHOW_MOVIE",
+              currentMovie: currentMovie,
+            })
+          }
           onReturnBack={(currentMovie) =>
-            this.setState({ currentMovie: undefined })
+            this.props.dispatch({
+              type: "SHOW_MOVIE",
+              currentMovie: null,
+            })
           }
         />
       );
@@ -45,7 +51,7 @@ class MainContent extends React.Component {
     return (
       <MoviesPage
         movies={movieList}
-        sortBy={this.state.sortBy}
+        sortBy={this.props.sortBy}
         onSortChange={(sortBy) => this.toggleSort(sortBy)}
         onChange={(currentMovie) =>
           this.props.dispatch({
@@ -61,6 +67,7 @@ class MainContent extends React.Component {
 const mapStateToProps = (state) => {
   return {
     currentMovie: state.currentMovie,
+    sortBy: state.sortBy,
   };
 };
 

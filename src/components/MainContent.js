@@ -2,6 +2,7 @@ import React from "react";
 import MovieData from "./movies/movies.json";
 import MoviesPage from "./MoviesPage";
 import MoviePage from "./MoviePage";
+import { connect } from "react-redux";
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -46,10 +47,21 @@ class MainContent extends React.Component {
         movies={movieList}
         sortBy={this.state.sortBy}
         onSortChange={(sortBy) => this.toggleSort(sortBy)}
-        onChange={(currentMovie) => this.setState({ currentMovie })}
+        onChange={(currentMovie) =>
+          this.props.dispatch({
+            type: "SHOW_MOVIE",
+            currentMovie: currentMovie,
+          })
+        }
       />
     );
   }
 }
 
-export default MainContent;
+const mapStateToProps = (state) => {
+  return {
+    currentMovie: state.currentMovie,
+  };
+};
+
+export default connect(mapStateToProps)(MainContent);

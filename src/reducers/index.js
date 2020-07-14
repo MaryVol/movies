@@ -10,20 +10,25 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case "CHANGE_SEARCH_BY":
-      return{
+      return {
         ...state,
         searchBy: action.searchBy,
       };
-      case "CHANGE_SORT_BY":
-      return{
+    case "CHANGE_SORT_BY":
+      return {
         ...state,
         sortBy: action.sortBy,
       };
-    default: return state;
+    case "SHOW_MOVIE":
+      return {
+        ...state,
+        currentMovie: action.currentMovie,
+      };
+    default:
+      return state;
   }
-  
 };
 
 export default reducer;

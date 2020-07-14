@@ -4,7 +4,7 @@ import Searcher from "./Searcher";
 import Toggle from "./Toggle";
 import { connect } from "react-redux";
 
-let sortByOptions = [
+let searchByOptions = [
   { value: "release_date", displayName: "Release date" },
   { value: "rating", displayName: "Rating" },
 ];
@@ -20,13 +20,13 @@ class Header extends React.Component {
           <h1>find your movie</h1>
           <Searcher />
           <Toggle
-            name="Sort by"
-            options={sortByOptions}
-            value={this.props.sortBy}
-            onChange={(sortBy) =>
+            name="Search by"
+            options={searchByOptions}
+            value={this.props.searchBy}
+            onChange={(searchBy) =>
               this.props.dispatch({
-                type: "CHANGE_SORT_BY",
-                sortBy: sortBy,
+                type: "CHANGE_SEARCH_BY",
+                searchBy: searchBy,
               })
             }
           />
@@ -38,7 +38,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    sortBy: state.sortBy,
+    searchBy: state.searchBy,
   };
 };
 

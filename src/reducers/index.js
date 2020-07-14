@@ -16,6 +16,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         searchBy: action.searchBy,
       };
+      case "CHANGE_SORT_BY":
+      return{
+        ...state,
+        sortBy: action.sortBy,
+      };
     default: return state;
   }
   

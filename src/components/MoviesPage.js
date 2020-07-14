@@ -4,10 +4,11 @@ import MovieList from "./MovieList";
 import Counter from "./Counter";
 import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
+import { connect } from "react-redux";
 
 const sortOptions = [
-  { value: "title", displayName: "Title" },
-  { value: "genre", displayName: "Genre" },
+  { value: "release_date", displayName: "Release date" },
+  { value: "rating", displayName: "Rating" },
 ];
 
 class MoviesPage extends React.Component {
@@ -22,7 +23,12 @@ class MoviesPage extends React.Component {
               name="Sort by"
               options={sortOptions}
               value={this.props.sortBy}
-              onChange={this.props.onSortChange}
+              onChange={(sortBy) =>
+                this.props.dispatch({
+                  type: "CHANGE_SORT_BY",
+                  sortBy: sortBy,
+                })
+              }
             />
           </div>
         </div>
@@ -39,4 +45,10 @@ class MoviesPage extends React.Component {
   }
 }
 
-export default MoviesPage;
+const mapStateToProps = (state) => {
+  return {
+    sortBy: state.sortBy,
+  };
+};
+
+export default connect(mapStateToProps)(MoviesPage);

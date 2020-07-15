@@ -21,27 +21,15 @@ class Searcher extends React.Component {
     });
   }
 
-  // handleSubmit = (event) =>{
-  //   event.preventDefault()
-  // };
-
-  handleChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      searchQuery: event.target.value,
-    });
-  };
-
   render() {
     return (
       <div className={styles.searcherWrapper}>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={(event) => event.target.elements.query}>
           <input
             type="text"
             className={styles.search}
             placeholder="Enter a movie"
-            value={this.props.searchQuery}
-            onChange={this.handleChange}
+            name="query"
           />
           <button
             className={styles.srcBtn}

@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentMovie: action.currentMovie,
       };
-      case "SEARCH":
+    case "SEARCH":
       return {
         ...state,
         searchQuery: action.searchQuery,

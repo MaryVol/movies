@@ -41,6 +41,7 @@ class Searcher extends React.Component {
             type="text"
             className={styles.search}
             placeholder="Enter a movie"
+            defaultValue={this.props.searchQuery}
             ref={this.input}
           />
           <button className={styles.srcBtn} type="submit">

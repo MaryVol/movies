@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 class Searcher extends React.Component {
   performSearch(searchTerm) {
     const urlString =
-      "https://api.themoviedb.org/3/search/movie?api_key=e530f5fe1f77ddf63766eee3c707e2fb&language=en-US&page=1&include_adult=false&query=" + searchTerm;
+      "https://api.themoviedb.org/3/search/movie?api_key=e530f5fe1f77ddf63766eee3c707e2fb&language=en-US&page=1&include_adult=false&query=" +
+      searchTerm;
     $.ajax({
       url: urlString,
       success: (searchResults) => {
@@ -20,27 +21,41 @@ class Searcher extends React.Component {
     });
   }
 
+  // handleSubmit = (event) =>{
+  //   event.preventDefault()
+  // };
+
+  handleChange = (event) => {
+    event.preventDefault();
+    this.setState({
+      searchQuery: event.target.value,
+    });
+  };
+
   render() {
     return (
       <div className={styles.searcherWrapper}>
-        <input
-          type="text"
-          className={styles.search}
-          placeholder="Enter a movie"
-          value={this.props.searchQuery}
-
-        />
-        <button
-          className={styles.srcBtn}
-          type="submit"
-          onClick={(searchQuery) =>
-            this.props.dispatch({
-              type: "SEARCH",
-              searchQuery: searchQuery,
-            })}
-        >
-          Search
-        </button>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            className={styles.search}
+            placeholder="Enter a movie"
+            value={this.props.searchQuery}
+            onChange={this.handleChange}
+          />
+          <button
+            className={styles.srcBtn}
+            type="submit"
+            onClick={(searchQuery) =>
+              this.props.dispatch({
+                type: "SEARCH",
+                searchQuery: searchQuery,
+              })
+            }
+          >
+            Search
+          </button>
+        </form>
       </div>
     );
   }
@@ -53,4 +68,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Searcher);
-

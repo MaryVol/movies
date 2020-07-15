@@ -25,6 +25,10 @@ class Searcher extends React.Component {
     });
   }
 
+  onSubmit(event) {
+    event.preventDefault()
+  }
+
   render() {
     return (
       <div className={styles.searcherWrapper}>

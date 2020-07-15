@@ -29,13 +29,13 @@ class Searcher extends React.Component {
     return (
       <div className={styles.searcherWrapper}>
         <form
-          onSubmit={
-            ((searchQuery, event) => event.preventDefault(),
+          onSubmit={(event) => {
+            event.preventDefault();
             this.props.dispatch({
               type: "SEARCH",
               searchQuery: this.input.current.value,
-            }))
-          }
+            });
+          }}
         >
           <input
             type="text"

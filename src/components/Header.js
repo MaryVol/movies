@@ -18,7 +18,7 @@ class Header extends React.Component {
             <b>netflix</b>roulette
           </h3>
           <h1>find your movie</h1>
-          <Searcher />
+          <Searcher key={this.props.searchQuery}/>
           <Toggle
             name="Search by"
             options={searchByOptions}
@@ -39,6 +39,7 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
   return {
     searchBy: state.searchBy,
+    searchQuery: state.searchQuery,
   };
 };
 

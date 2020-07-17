@@ -1,28 +1,34 @@
 import React from "react";
 import styles from "./Header.module.css";
-import $ from "jquery";
 import { connect } from "react-redux";
+import axios from "axios";
 
 class Searcher extends React.Component {
   constructor(props) {
     super(props);
     this.input = React.createRef();
+    searchQuery: {
+      this.props.searchQuery;
+    }
   }
+
   performSearch(searchTerm) {
     const urlString =
       "https://api.themoviedb.org/3/search/movie?api_key=e530f5fe1f77ddf63766eee3c707e2fb&language=en-US&page=1&include_adult=false&query=" +
       searchTerm;
-    $.ajax({
-      url: urlString,
-      success: (searchResults) => {
-        console.log("success");
-        console.log(searchResults);
-        const results = searchResults.results;
-      },
-      error: (xhr, status, err) => {
-        console.error("failed");
-      },
-    });
+    axios
+      .get(urlString)
+      .then((response) => {
+        this.setState({ searchQuery: response.data });
+        console.log(response);
+        this.props.dispatch({
+          type: "SEARCH",
+          searchQuery: this.input.current.value,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -31,11 +37,7 @@ class Searcher extends React.Component {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            this.props.dispatch({
-              type: "SEARCH",
-              searchQuery: this.input.current.value,
-            });
-            this.performSearch(this.props.searchQuery)
+            this.performSearch(this.props.searchQuery);
           }}
         >
           <input

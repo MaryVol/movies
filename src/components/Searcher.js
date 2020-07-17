@@ -44,7 +44,7 @@ class Searcher extends React.Component {
             defaultValue={this.props.searchQuery}
             ref={this.input}
           />
-          <button className={styles.srcBtn} type="submit">
+          <button className={styles.srcBtn} type="submit" onSubmit={this.performSearch(this.props.searchQuery)}>
             Search
           </button>
         </form>

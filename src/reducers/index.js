@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
       case "FETCH_MOVIE_SUCCESS":
         return{
           ...state,
-          movieList: action.MovieData,
+          movieList: action.movieList,
         }
     default:
       return state;

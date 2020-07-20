@@ -15,7 +15,7 @@ class Searcher extends React.Component {
   performSearch(searchTerm) {
     this.props.dispatch({
       type: "SEARCH",
-      searchQuery: this.input.current.value,
+      searchQuery: searchTerm,
     });
     const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
     axios

@@ -14,8 +14,7 @@ class Searcher extends React.Component {
 
   performSearch(searchTerm) {
     const urlString =
-      "https://api.themoviedb.org/3/search/movie?api_key=e530f5fe1f77ddf63766eee3c707e2fb&language=en-US&page=1&include_adult=false&query=" +
-      searchTerm;
+      "https://reactjs-cdp.herokuapp.com/movies/";
     axios
       .get(urlString)
       .then((response) => {

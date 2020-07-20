@@ -31,7 +31,7 @@ class Searcher extends React.Component {
         console.log(response);
         this.props.dispatch({
           type: "FETCH_MOVIES_SUCCESS",
-          movieList: response.data,
+          movieList: response.data.data,
         });
       })
       .catch((error) => {

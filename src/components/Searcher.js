@@ -14,9 +14,16 @@ class Searcher extends React.Component {
 
   performSearch(searchTerm) {
     const urlString =
-      "https://reactjs-cdp.herokuapp.com/movies/?sortBy=&sortOrder=&search=${searchTerm}&searchBy=";
+      "https://reactjs-cdp.herokuapp.com/movies/";
     axios
-      .get(urlString)
+      .get(urlString, {
+        params: {
+          search: searchTerm,
+          sortBy: 
+          sortOrder:
+          searchBy:
+        }
+      })
       .then((response) => {
         this.setState({ searchQuery: response.data });
         console.log(response);

@@ -65,8 +65,8 @@ class Searcher extends React.Component {
 const mapStateToProps = (state) => {
   return {
     searchQuery: state.searchQuery,
-    sortBy: "release_date",
-    searchBy: "title",
+    sortBy: state.sortBy,
+    searchBy: state.searchBy,
   };
 };
 

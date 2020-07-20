@@ -69,7 +69,7 @@ const mapStateToProps = (state) => {
     searchQuery: state.searchQuery,
     sortBy: state.sortBy,
     searchBy: state.searchBy,
-    movieList: state.MovieData,
+    movieList: state.movieList,
   };
 };
 

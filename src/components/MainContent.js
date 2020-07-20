@@ -1,5 +1,4 @@
 import React from "react";
-import MovieData from "./movies/movies.json";
 import MoviesPage from "./MoviesPage";
 import MoviePage from "./MoviePage";
 import { connect } from "react-redux";
@@ -9,7 +8,7 @@ class MainContent extends React.Component {
     super(props);
     this.toggleSort = this.toggleSort.bind(this);
     this.state = {
-      movieList: MovieData,
+      movieList: this.props.movieList,
     };
   }
   toggleSort(sortBy) {
@@ -28,7 +27,7 @@ class MainContent extends React.Component {
   }
 
   render() {
-    const { movieList } = this.state;
+    const { movieList } = this.props;
     if (this.props.currentMovie) {
       return (
         <MoviePage
@@ -68,6 +67,7 @@ const mapStateToProps = (state) => {
   return {
     currentMovie: state.currentMovie,
     sortBy: state.sortBy,
+    movieList: state.movieList,
   };
 };
 

@@ -19,9 +19,9 @@ class Searcher extends React.Component {
       .get(urlString, {
         params: {
           search: searchTerm,
-          sortBy: 
-          sortOrder:
-          searchBy:
+          sortBy: this.props.sortBy,
+          sortOrder: 'desc',
+          searchBy: this.props.searchBy,
         }
       })
       .then((response) => {
@@ -65,6 +65,8 @@ class Searcher extends React.Component {
 const mapStateToProps = (state) => {
   return {
     searchQuery: state.searchQuery,
+    sortBy: "release_date",
+    searchBy: "title",
   };
 };
 

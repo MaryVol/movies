@@ -1,4 +1,4 @@
-import MovieData from "../components/movies/movies.json";
+// import MovieData from "../components/movies/movies.json";
 
 const initialState = {
   currentMovie: null,
@@ -31,6 +31,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         searchQuery: action.searchQuery,
       };
+      case "FETCH_MOVIE_SUCCESS":
+        return{
+          ...state,
+          movieList: action.MovieData,
+        }
     default:
       return state;
   }

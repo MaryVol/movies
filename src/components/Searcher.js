@@ -29,6 +29,10 @@ class Searcher extends React.Component {
       })
       .then((response) => {
         console.log(response);
+        this.props.dispatch({
+          type: "FETCH_MOVIE_SUCCESS",
+          movieList: response.data,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -65,6 +69,7 @@ const mapStateToProps = (state) => {
     searchQuery: state.searchQuery,
     sortBy: state.sortBy,
     searchBy: state.searchBy,
+    movieList: state.MovieData,
   };
 };
 

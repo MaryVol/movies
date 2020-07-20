@@ -7,9 +7,9 @@ class Searcher extends React.Component {
   constructor(props) {
     super(props);
     this.input = React.createRef();
-    searchQuery: {
-      this.props.searchQuery;
-    }
+    this.state = {
+    searchQuery: this.props.searchQuery,
+    };
   }
 
   performSearch(searchTerm) {

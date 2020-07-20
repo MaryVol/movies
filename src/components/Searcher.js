@@ -25,7 +25,6 @@ class Searcher extends React.Component {
         }
       })
       .then((response) => {
-        this.setState({ searchQuery: response.data });
         console.log(response);
         this.props.dispatch({
           type: "SEARCH",

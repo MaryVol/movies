@@ -8,28 +8,27 @@ class Searcher extends React.Component {
     super(props);
     this.input = React.createRef();
     this.state = {
-    searchQuery: this.props.searchQuery,
+      searchQuery: this.props.searchQuery,
     };
   }
 
   performSearch(searchTerm) {
-    const urlString =
-      "https://reactjs-cdp.herokuapp.com/movies/";
+    this.props.dispatch({
+      type: "SEARCH",
+      searchQuery: this.input.current.value,
+    });
+    const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
     axios
       .get(urlString, {
         params: {
           search: searchTerm,
           sortBy: this.props.sortBy,
-          sortOrder: 'desc',
+          sortOrder: "desc",
           searchBy: this.props.searchBy,
-        }
+        },
       })
       .then((response) => {
         console.log(response);
-        this.props.dispatch({
-          type: "SEARCH",
-          searchQuery: this.input.current.value,
-        });
       })
       .catch((error) => {
         console.log(error);

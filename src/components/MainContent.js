@@ -7,10 +7,8 @@ class MainContent extends React.Component {
   constructor(props) {
     super(props);
     this.toggleSort = this.toggleSort.bind(this);
-    this.state = {
-      movieList: this.props.movieList,
-    };
   }
+  
   toggleSort(sortBy) {
     this.setState({
       movieList: this.state.movieList.slice().sort((a, b) => {

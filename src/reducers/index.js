@@ -2,7 +2,7 @@
 
 const initialState = {
   currentMovie: null,
-  movieList: MovieData,
+  movieList: [],
   visibleMoviesId: [],
   sortBy: "release_date",
   searchBy: "title",
@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         searchQuery: action.searchQuery,
       };
-      case "FETCH_MOVIE_SUCCESS":
+      case "FETCH_MOVIES_SUCCESS":
         return{
           ...state,
           movieList: action.movieList,

@@ -41,7 +41,7 @@ class Searcher extends React.Component {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            this.performSearch(this.props.searchQuery);
+            this.performSearch(this.input.current.value);
           }}
         >
           <input

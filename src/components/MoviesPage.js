@@ -5,6 +5,7 @@ import Counter from "./Counter";
 import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
 import { connect } from "react-redux";
+import axios from "axios";
 
 const sortOptions = [
   { value: "release_date", displayName: "Release date" },
@@ -12,6 +13,33 @@ const sortOptions = [
 ];
 
 class MoviesPage extends React.Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: "SEARCH",
+      searchQuery: this.props.searchQuery,
+    });
+    const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
+    axios
+      .get(urlString, {
+        params: {
+          search: this.props.searchQuery,
+          sortBy: this.props.sortBy,
+          sortOrder: "desc",
+          searchBy: this.props.searchBy,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        this.props.dispatch({
+          type: "FETCH_MOVIES_SUCCESS",
+          movieList: response.data.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
     const movies = this.props.movies;
     return (
@@ -48,6 +76,9 @@ class MoviesPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     sortBy: state.sortBy,
+    searchQuery: state.searchQuery,
+    searchBy: state.searchBy,
+    movieList: state.movieList,
   };
 };
 

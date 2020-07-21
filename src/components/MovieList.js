@@ -13,8 +13,8 @@ function MovieList(props) {
           >
             <img src={mData.poster_path}></img>
             <h4>{mData.title}</h4>
-            <small>{mData.genre}</small>
-            <h5>{mData.release_date}</h5>
+            <small>{mData.genres[0]}</small>
+            <h5>{mData.release_date.split('-')[0]}</h5>
           </div>
         );
       })}

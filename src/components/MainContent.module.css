@@ -27,7 +27,6 @@ h5 {
   display: inline-block;
   padding: 3px;
   font-weight: 100;
-  margin-left: 10px;
 }
 .footer {
   background-color: #545454;
@@ -67,12 +66,21 @@ h5 {
   flex-wrap: wrap;
   flex-direction: column;
 }
+small{
+  display: block;
+  font-weight: 100;
+  font-style: italic;
+  color: #f65160;
+}
 .movieCard .rating {
   border-radius: 50%;
   border: #ffffff 1px solid;
   color: #8db36c;
-  padding: 12px;
-  margin-left: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 7px;
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 .movieCard .number {
   color: #f65261;

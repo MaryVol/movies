@@ -23,14 +23,14 @@ class MoviePage extends React.Component {
                 <div className={styles.textWrap}>
                   <h2>
                     {movie.title}{" "}
-                    <span className={styles.rating}>{movie.rating}</span>
+                    <span className={styles.rating}>{movie.vote_count}/10</span>
                   </h2>
                   <p>
-                    <span className={styles.number}>{movie.release_date}</span>
-                    year<span className={styles.number}>{movie.runtime}</span>
-                    min
+                    <span className={styles.number}>{movie.release_date.split('-')[0]}</span>
+                    year<span className={styles.number}>{movie.budget}</span>
+                    $
                   </p>
-                  <p>{movie.description}</p>
+                  <p>{movie.overview}</p>
                 </div>
               </div>
             </div>

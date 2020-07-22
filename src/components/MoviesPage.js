@@ -14,23 +14,21 @@ const sortOptions = [
 
 class MoviesPage extends React.Component {
   componentDidMount() {
-    this.props.dispatch({
-      type: "SEARCH",
-      searchQuery: this.props.searchQuery,
-    });
+    const state = this.props.reduxState;
+    const dispatch = this.props.dispatch;
     const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
     axios
       .get(urlString, {
         params: {
-          search: this.props.searchQuery,
-          sortBy: this.props.sortBy,
+          search: state.searchQuery,
+          sortBy: state.sortBy,
           sortOrder: "desc",
-          searchBy: this.props.searchBy,
+          searchBy: state.searchBy,
         },
       })
       .then((response) => {
         console.log(response);
-        this.props.dispatch({
+        dispatch({
           type: "FETCH_MOVIES_SUCCESS",
           movieList: response.data.data,
         });
@@ -79,6 +77,7 @@ const mapStateToProps = (state) => {
     searchQuery: state.searchQuery,
     searchBy: state.searchBy,
     movieList: state.movieList,
+    reduxState: state,
   };
 };
 

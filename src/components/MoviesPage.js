@@ -54,10 +54,7 @@ class MoviesPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     sortBy: state.sortBy,
-    searchQuery: state.searchQuery,
-    searchBy: state.searchBy,
     movieList: state.movieList,
-    reduxState: state,
   };
 };
 

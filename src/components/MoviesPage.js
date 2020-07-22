@@ -16,6 +16,7 @@ class MoviesPage extends React.Component {
   componentDidMount() {
     const state = this.props.reduxState;
     const dispatch = this.props.dispatch;
+    const getState = () => state;
     const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
     axios
       .get(urlString, {

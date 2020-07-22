@@ -17,26 +17,7 @@ class Searcher extends React.Component {
       type: "SEARCH",
       searchQuery: searchTerm,
     });
-    const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
-    axios
-      .get(urlString, {
-        params: {
-          search: searchTerm,
-          sortBy: this.props.sortBy,
-          sortOrder: "desc",
-          searchBy: this.props.searchBy,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        this.props.dispatch({
-          type: "FETCH_MOVIES_SUCCESS",
-          movieList: response.data.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.props.dispatch(fetchMovies);
   }
 
   render() {

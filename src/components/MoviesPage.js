@@ -16,10 +16,6 @@ const sortOptions = [
 class MoviesPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchMovies);
-    const state = this.props.reduxState;
-    const dispatch = this.props.dispatch;
-    const getState = () => state;
-    fetchMovies(getState, dispatch);
   }
 
   render() {

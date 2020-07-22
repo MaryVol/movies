@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function fetchMovies(getState, dispatch){
     const state = getState();
     const urlString = "https://reactjs-cdp.herokuapp.com/movies/";

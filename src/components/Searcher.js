@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { connect } from "react-redux";
-import axios from "axios";
+import { fetchMovies } from "../actions";
 
 class Searcher extends React.Component {
   constructor(props) {

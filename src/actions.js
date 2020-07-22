@@ -1,7 +1,5 @@
 export function fetchMovies(getState, dispatch){
-    const state = this.props.reduxState;
-    const dispatch = this.props.dispatch;
-    const getState = () => state;
+    const state = getState();
     const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
     axios
       .get(urlString, {

@@ -37,6 +37,7 @@ export function searchMovies(searchTerm) {
 export function toggleSort(sortBy) {
   return function (dispatch) {
     dispatch({
+      type: "CHANGE_SORT_BY",
       sortBy: sortBy,
     });
     dispatch(fetchMovies);

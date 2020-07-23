@@ -30,6 +30,6 @@ export function searchMovies(searchTerm) {
       type: "SEARCH",
       searchQuery: searchTerm,
     });
-    dispatch(fetchMovies());
+    dispatch(fetchMovies);
   };
 }

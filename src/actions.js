@@ -23,3 +23,13 @@ export function fetchMovies(dispatch, getState) {
       console.log(error);
     });
 }
+
+export function searchMovies(searchTerm) {
+  return function (dispatch) {
+    this.props.dispatch({
+      type: "SEARCH",
+      searchQuery: searchTerm,
+    });
+    fetchMovies;
+  };
+}

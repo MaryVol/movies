@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { connect } from "react-redux";
-import { fetchMovies } from "../actions";
+import { fetchMovies, searchMovies } from "../actions";
 
 class Searcher extends React.Component {
   constructor(props) {
@@ -12,13 +12,13 @@ class Searcher extends React.Component {
     };
   }
 
-  performSearch(searchTerm) {
-    this.props.dispatch({
-      type: "SEARCH",
-      searchQuery: searchTerm,
-    });
-    this.props.dispatch(fetchMovies);
-  }
+  // performSearch(searchTerm) {
+  //   this.props.dispatch({
+  //     type: "SEARCH",
+  //     searchQuery: searchTerm,
+  //   });
+  //   this.props.dispatch(fetchMovies);
+  // }
 
   render() {
     return (
@@ -26,7 +26,7 @@ class Searcher extends React.Component {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            this.performSearch(this.input.current.value);
+            this.props.dispatch(searchMovies(this.input.current.value));
           }}
         >
           <input

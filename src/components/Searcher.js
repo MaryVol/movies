@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { connect } from "react-redux";
-import { fetchMovies, searchMovies } from "../actions";
+import { searchMovies } from "../actions";
 
 class Searcher extends React.Component {
   constructor(props) {
@@ -11,14 +11,6 @@ class Searcher extends React.Component {
       searchQuery: this.props.searchQuery,
     };
   }
-
-  // performSearch(searchTerm) {
-  //   this.props.dispatch({
-  //     type: "SEARCH",
-  //     searchQuery: searchTerm,
-  //   });
-  //   this.props.dispatch(fetchMovies);
-  // }
 
   render() {
     return (

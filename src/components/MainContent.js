@@ -2,27 +2,28 @@ import React from "react";
 import MoviesPage from "./MoviesPage";
 import MoviePage from "./MoviePage";
 import { connect } from "react-redux";
+import { toggleSort } from "../actions";
 
 class MainContent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleSort = this.toggleSort.bind(this);
-  }
-  
-  toggleSort(sortBy) {
-    this.setState({
-      movieList: this.state.movieList.slice().sort((a, b) => {
-        if (a[sortBy] > b[sortBy]) {
-          return -1;
-        } else if (b[sortBy] > a[sortBy]) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }),
-      sortBy: sortBy,
-    });
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.toggleSort = this.toggleSort.bind(this);
+  // }
+
+  // toggleSort(sortBy) {
+  //   this.setState({
+  //     movieList: this.state.movieList.slice().sort((a, b) => {
+  //       if (a[sortBy] > b[sortBy]) {
+  //         return -1;
+  //       } else if (b[sortBy] > a[sortBy]) {
+  //         return 1;
+  //       } else {
+  //         return 0;
+  //       }
+  //     }),
+  //     sortBy: sortBy,
+  //   });
+  // }
 
   render() {
     const { movieList } = this.props;
@@ -49,7 +50,7 @@ class MainContent extends React.Component {
       <MoviesPage
         movies={movieList}
         sortBy={this.props.sortBy}
-        onSortChange={(sortBy) => this.toggleSort(sortBy)}
+        onSortChange={(event) => this.props.dispatch(toggleSort(sortBy))}
         onChange={(currentMovie) =>
           this.props.dispatch({
             type: "SHOW_MOVIE",

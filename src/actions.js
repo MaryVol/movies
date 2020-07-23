@@ -33,3 +33,21 @@ export function searchMovies(searchTerm) {
     dispatch(fetchMovies);
   };
 }
+
+export function toggleSort(sortBy) {
+  return function (dispatch) {
+    dispatch({
+      movieList: this.state.movieList.slice().sort((a, b) => {
+        if (a[sortBy] > b[sortBy]) {
+          return -1;
+        } else if (b[sortBy] > a[sortBy]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }),
+      sortBy: sortBy,
+    });
+    dispatch(fetchMovies);
+  };
+}

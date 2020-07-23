@@ -26,10 +26,10 @@ export function fetchMovies(dispatch, getState) {
 
 export function searchMovies(searchTerm) {
   return function (dispatch) {
-    this.props.dispatch({
+    dispatch({
       type: "SEARCH",
       searchQuery: searchTerm,
     });
-    fetchMovies;
+    dispatch(fetchMovies());
   };
 }

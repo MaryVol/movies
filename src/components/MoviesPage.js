@@ -6,7 +6,7 @@ import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
 import { connect } from "react-redux";
 
-import { fetchMovies } from "../actions";
+import { fetchMovies, toggleSort } from "../actions";
 
 const sortOptions = [
   { value: "release_date", displayName: "Release date" },
@@ -29,11 +29,13 @@ class MoviesPage extends React.Component {
               name="Sort by"
               options={sortOptions}
               value={this.props.sortBy}
-              onChange={(sortBy) =>
+              onChange={(sortBy) => {
                 this.props.dispatch({
                   type: "CHANGE_SORT_BY",
                   sortBy: sortBy,
-                })
+                });
+                toggleSort(sortBy);
+              }
               }
             />
           </div>

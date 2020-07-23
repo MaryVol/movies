@@ -50,7 +50,6 @@ class MainContent extends React.Component {
       <MoviesPage
         movies={movieList}
         sortBy={this.props.sortBy}
-        // onSortChange={this.props.dispatch(toggleSort(sortBy))}
         onChange={(currentMovie) =>
           this.props.dispatch({
             type: "SHOW_MOVIE",

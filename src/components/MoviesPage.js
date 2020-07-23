@@ -29,13 +29,10 @@ class MoviesPage extends React.Component {
               name="Sort by"
               options={sortOptions}
               value={this.props.sortBy}
-              onChange={(sortBy) => {
-                this.props.dispatch({
-                  type: "CHANGE_SORT_BY",
-                  sortBy: sortBy,
-                });
-                toggleSort(sortBy);
-              }
+              onChange={(sortBy) =>
+                this.props.dispatch(
+                  toggleSort(sortBy)
+                )
               }
             />
           </div>

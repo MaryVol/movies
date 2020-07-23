@@ -43,3 +43,13 @@ export function toggleSort(sortBy) {
     dispatch(fetchMovies);
   };
 }
+
+export function toggleSearch(searchBy) {
+  return function (dispatch) {
+    dispatch({
+      type: "CHANGE_SEARCH_BY",
+      searchBy: searchBy,
+    });
+    dispatch(fetchMovies);
+  };
+}

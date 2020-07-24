@@ -2,28 +2,8 @@ import React from "react";
 import MoviesPage from "./MoviesPage";
 import MoviePage from "./MoviePage";
 import { connect } from "react-redux";
-import { toggleSort } from "../actions";
 
 class MainContent extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.toggleSort = this.toggleSort.bind(this);
-  // }
-
-  // toggleSort(sortBy) {
-  //   this.setState({
-  //     movieList: this.state.movieList.slice().sort((a, b) => {
-  //       if (a[sortBy] > b[sortBy]) {
-  //         return -1;
-  //       } else if (b[sortBy] > a[sortBy]) {
-  //         return 1;
-  //       } else {
-  //         return 0;
-  //       }
-  //     }),
-  //     sortBy: sortBy,
-  //   });
-  // }
 
   render() {
     const { movieList } = this.props;

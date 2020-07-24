@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import Searcher from "./Searcher";
 import Toggle from "./Toggle";
 import { connect } from "react-redux";
+import { fetchMovies, toggleSearch } from "../actions";
 
 let searchByOptions = [
   { value: "title", displayName: "Title" },
@@ -18,17 +19,12 @@ class Header extends React.Component {
             <b>netflix</b>roulette
           </h3>
           <h1>find your movie</h1>
-          <Searcher key={this.props.searchQuery}/>
+          <Searcher key={this.props.searchQuery} />
           <Toggle
             name="Search by"
             options={searchByOptions}
             value={this.props.searchBy}
-            onChange={(searchBy) =>
-              this.props.dispatch({
-                type: "CHANGE_SEARCH_BY",
-                searchBy: searchBy,
-              })
-            }
+            onChange={(searchBy) => this.props.dispatch(toggleSearch(searchBy))}
           />
         </div>
       </header>

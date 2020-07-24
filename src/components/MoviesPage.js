@@ -5,7 +5,6 @@ import Counter from "./Counter";
 import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
 import { connect } from "react-redux";
-
 import { fetchMovies, toggleSort } from "../actions";
 
 const sortOptions = [

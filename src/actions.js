@@ -53,3 +53,4 @@ export function toggleSearch(searchBy) {
     dispatch(fetchMovies);
   };
 }
+

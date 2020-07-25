@@ -7,6 +7,7 @@ const initialState = {
   sortBy: "release_date",
   searchBy: "title",
   searchQuery: "",
+  counter: "",
 };
 
 const reducer = (state = initialState, action) => {

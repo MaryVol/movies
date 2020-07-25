@@ -28,11 +28,7 @@ class MoviesPage extends React.Component {
               name="Sort by"
               options={sortOptions}
               value={this.props.sortBy}
-              onChange={(sortBy) =>
-                this.props.dispatch(
-                  toggleSort(sortBy)
-                )
-              }
+              onChange={(sortBy) => this.props.dispatch(toggleSort(sortBy))}
             />
           </div>
         </div>
@@ -53,6 +49,7 @@ const mapStateToProps = (state) => {
   return {
     sortBy: state.sortBy,
     movieList: state.movieList,
+    counter: state.counter,
   };
 };
 

@@ -24,6 +24,10 @@ class MoviesPage extends React.Component {
   }
 
   render() {
+    if (this.props.movieList == 0) {
+      console.log("not found");
+      return <div className={styless.notfound}>Movies not found</div>;
+    }
     const movies = this.props.movies;
     return (
       <main>

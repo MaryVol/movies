@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./infobar.module.css";
 import { connect } from "react-redux";
-import { countMovies } from "../actions";
 
 class Counter extends React.Component {
   render() {

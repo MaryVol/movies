@@ -6,11 +6,17 @@ import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
 import { connect } from "react-redux";
 import { fetchMovies, toggleSort } from "../actions";
+import { usePromiseTracker } from "react-promise-tracker";
 
 const sortOptions = [
   { value: "release_date", displayName: "Release date" },
   { value: "rating", displayName: "Rating" },
 ];
+
+function LoadingIndicator() {
+  const { promiseInProgress } = usePromiseTracker();
+  return promiseInProgress && <div className={styless.loader}></div>;
+}
 
 class MoviesPage extends React.Component {
   componentDidMount() {
@@ -33,6 +39,7 @@ class MoviesPage extends React.Component {
           </div>
         </div>
         <div className={styles.container}>
+          <LoadingIndicator />
           <MovieList movies={movies} onChange={this.props.onChange} />
         </div>
         <div className={styles.footer}>
@@ -50,6 +57,7 @@ const mapStateToProps = (state) => {
     sortBy: state.sortBy,
     movieList: state.movieList,
     counter: state.counter,
+    loading: state.loading,
   };
 };
 

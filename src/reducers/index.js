@@ -32,11 +32,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         searchQuery: action.searchQuery,
       };
-      case "FETCH_MOVIES_SUCCESS":
-        return{
-          ...state,
-          movieList: action.movieList,
-        }
+    case "FETCH_MOVIES_SUCCESS":
+      return {
+        ...state,
+        movieList: action.movieList,
+      };
     default:
       return state;
   }

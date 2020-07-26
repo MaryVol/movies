@@ -1,8 +1,10 @@
 import axios from "axios";
+import { trackPromise } from 'react-promise-tracker';
 
 export function fetchMovies(dispatch, getState) {
   const state = getState();
   const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
+  trackPromise(
   axios
     .get(urlString, {
       params: {
@@ -21,7 +23,8 @@ export function fetchMovies(dispatch, getState) {
     })
     .catch((error) => {
       console.log(error);
-    });
+    })
+  )
 }
 
 export function searchMovies(searchTerm) {
@@ -53,4 +56,3 @@ export function toggleSearch(searchBy) {
     dispatch(fetchMovies);
   };
 }
-

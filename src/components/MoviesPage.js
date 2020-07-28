@@ -20,21 +20,27 @@ function NotFound() {
   return <div className={styless.notfound}>Movies not found</div>;
 }
 
+function Load(props) {
+  switch (props.loadingStatus) {
+    case "loading":
+      return <LoadingIndicator />;
+    case "loaded":
+      return props.movieList.length > 0 ? (
+        <MovieList movies={props.movieList} />
+      ) : (
+        <NotFound />
+      );
+    default:
+      break;
+  }
+}
+
 class MoviesPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchMovies);
   }
-
   render() {
     const movies = this.props.movies;
-    switch (this.props.loadingStatus) {
-      case "loading":
-        return <LoadingIndicator />;
-      case "loaded":
-        return this.props.movieList.length > 0 ? <MovieList /> : <NotFound />;
-      default:
-        break;
-    }
     return (
       <main>
         <div className={styless.infoBar}>
@@ -49,14 +55,11 @@ class MoviesPage extends React.Component {
           </div>
         </div>
         <div className={styles.container}>
-          {/* <LoadingIndicator
-            loading={this.props.loadingStatus}
+          <Load
+            loadingStatus={this.props.loadingStatus}
             movieList={this.props.movieList}
           />
-          <NotFound
-            movieList={this.props.movieList}
-            loading={this.props.loadingStatus}
-          /> */}
+
           <MovieList movies={movies} onChange={this.props.onChange} />
         </div>
         <div className={styles.footer}>

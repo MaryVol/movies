@@ -17,7 +17,7 @@ function LoadingIndicator(props) {
     return <div className={styless.loader}></div>;
   } else if (props.loading === "loaded") {
     return null;
-  } else if (props.loading === "loaded" && props.movieList == 0) {
+  } else if (props.loading === "loaded" && props.movieList.length == 0) {
     return <div className={styless.notfound}>Movies not found</div>;
   }
 }

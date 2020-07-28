@@ -14,9 +14,11 @@ const sortOptions = [
 
 function LoadingIndicator(props) {
   if (props.loading === "loading") {
-    return <div className={styless.loader}>Loading...</div>;
+    return <div className={styless.loader}></div>;
   } else if (props.loading === "loaded") {
-    return console.log("success");
+    return null;
+  } else if (props.loading === "loaded" && props.movieList == 0) {
+    return <div className={styless.notfound}>Movies not found</div>;
   }
 }
 
@@ -26,10 +28,6 @@ class MoviesPage extends React.Component {
   }
 
   render() {
-    if (this.props.movieList == 0) {
-      console.log("not found");
-      return <div className={styless.notfound}>Movies not found</div>;
-    }
     const movies = this.props.movies;
     return (
       <main>
@@ -45,7 +43,10 @@ class MoviesPage extends React.Component {
           </div>
         </div>
         <div className={styles.container}>
-          <LoadingIndicator loading={this.props.loadingStatus} />
+          <LoadingIndicator
+            loading={this.props.loadingStatus}
+            movieList={this.props.movieList}
+          />
           <MovieList movies={movies} onChange={this.props.onChange} />
         </div>
         <div className={styles.footer}>

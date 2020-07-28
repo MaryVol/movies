@@ -22,6 +22,12 @@ function LoadingIndicator(props) {
   }
 }
 
+function NotFound(props) {
+  if (props.movieList.length == 0 && props.loading === "loaded") {
+    return <div className={styless.notfound}>Movies not found</div>;
+  } else return null;
+}
+
 class MoviesPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchMovies);
@@ -46,6 +52,10 @@ class MoviesPage extends React.Component {
           <LoadingIndicator
             loading={this.props.loadingStatus}
             movieList={this.props.movieList}
+          />
+          <NotFound
+            movieList={this.props.movieList}
+            loading={this.props.loadingStatus}
           />
           <MovieList movies={movies} onChange={this.props.onChange} />
         </div>

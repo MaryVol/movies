@@ -6,7 +6,6 @@ import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
 import { connect } from "react-redux";
 import { fetchMovies, toggleSort } from "../actions";
-import { usePromiseTracker } from "react-promise-tracker";
 
 const sortOptions = [
   { value: "release_date", displayName: "Release date" },
@@ -14,8 +13,9 @@ const sortOptions = [
 ];
 
 function LoadingIndicator() {
-  const { promiseInProgress } = usePromiseTracker();
-  return promiseInProgress && <div className={styless.loader}></div>;
+  if (state.loadingStatus === "loading"){
+  return <div className={styless.loader}></div>;
+  }
 }
 
 class MoviesPage extends React.Component {
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => {
     sortBy: state.sortBy,
     movieList: state.movieList,
     counter: state.counter,
-    loading: state.loading,
+    loadingStatus: state.loadingStatus,
   };
 };
 

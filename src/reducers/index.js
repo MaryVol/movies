@@ -8,6 +8,7 @@ const initialState = {
   searchBy: "title",
   searchQuery: "",
   counter: "",
+  loadingStatus: "idle",
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,11 +16,13 @@ const reducer = (state = initialState, action) => {
     case "CHANGE_SEARCH_BY":
       return {
         ...state,
+        loadingStatus: "loading",
         searchBy: action.searchBy,
       };
     case "CHANGE_SORT_BY":
       return {
         ...state,
+        loadingStatus: "loading",
         sortBy: action.sortBy,
       };
     case "SHOW_MOVIE":
@@ -31,10 +34,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchQuery: action.searchQuery,
+        loadingStatus: "loading",
       };
     case "FETCH_MOVIES_SUCCESS":
       return {
         ...state,
+        loadingStatus: "loaded",
         movieList: action.movieList,
       };
     default:

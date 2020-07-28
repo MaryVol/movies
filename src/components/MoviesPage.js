@@ -26,7 +26,7 @@ function Load(props) {
       return <LoadingIndicator />;
     case "loaded":
       return props.movieList.length > 0 ? (
-        <MovieList movies={props.movieList} />
+        <MovieList movies={props.movieList} onChange={props.onChange} />
       ) : (
         <NotFound />
       );
@@ -59,8 +59,7 @@ class MoviesPage extends React.Component {
             loadingStatus={this.props.loadingStatus}
             movieList={this.props.movieList}
           />
-
-          <MovieList movies={movies} onChange={this.props.onChange} />
+          {/* <MovieList movies={movies} onChange={this.props.onChange} /> */}
         </div>
         <div className={styles.footer}>
           <h3>

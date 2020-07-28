@@ -8,7 +8,7 @@ const initialState = {
   searchBy: "title",
   searchQuery: "",
   counter: "",
-  loadingStatus: "idle",
+  loadingStatus: "loading",
 };
 
 const reducer = (state = initialState, action) => {

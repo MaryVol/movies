@@ -12,9 +12,11 @@ const sortOptions = [
   { value: "rating", displayName: "Rating" },
 ];
 
-function LoadingIndicator() {
-  if (state.loadingStatus === "loading"){
-  return <div className={styless.loader}></div>;
+function LoadingIndicator(props) {
+  if (props.loading === "loading") {
+    return <div className={styless.loader}>Loading...</div>;
+  } else if (props.loading === "loaded") {
+    return console.log("success");
   }
 }
 
@@ -43,7 +45,7 @@ class MoviesPage extends React.Component {
           </div>
         </div>
         <div className={styles.container}>
-          <LoadingIndicator />
+          <LoadingIndicator loading={this.props.loadingStatus} />
           <MovieList movies={movies} onChange={this.props.onChange} />
         </div>
         <div className={styles.footer}>

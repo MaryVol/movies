@@ -4,19 +4,12 @@ import MoviePage from "./MoviePage";
 import { connect } from "react-redux";
 
 class MainContent extends React.Component {
-
   render() {
     const { movieList } = this.props;
     if (this.props.currentMovie) {
       return (
         <MoviePage
           movie={this.props.currentMovie}
-          onChange={(currentMovie) =>
-            this.props.dispatch({
-              type: "SHOW_MOVIE",
-              currentMovie: currentMovie,
-            })
-          }
           onReturnBack={(currentMovie) =>
             this.props.dispatch({
               type: "SHOW_MOVIE",
@@ -26,18 +19,7 @@ class MainContent extends React.Component {
         />
       );
     }
-    return (
-      <MoviesPage
-        movies={movieList}
-        sortBy={this.props.sortBy}
-        onChange={(currentMovie) =>
-          this.props.dispatch({
-            type: "SHOW_MOVIE",
-            currentMovie: currentMovie,
-          })
-        }
-      />
-    );
+    return <MoviesPage movies={movieList} sortBy={this.props.sortBy} />;
   }
 }
 

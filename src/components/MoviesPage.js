@@ -58,8 +58,13 @@ class MoviesPage extends React.Component {
           <Load
             loadingStatus={this.props.loadingStatus}
             movieList={this.props.movieList}
+            onChange={(currentMovie) => {
+              this.props.dispatch({
+                type: "SHOW_MOVIE",
+                currentMovie: currentMovie,
+              });
+            }}
           />
-          {/* <MovieList movies={movies} onChange={this.props.onChange} /> */}
         </div>
         <div className={styles.footer}>
           <h3>
@@ -77,6 +82,7 @@ const mapStateToProps = (state) => {
     movieList: state.movieList,
     counter: state.counter,
     loadingStatus: state.loadingStatus,
+    currentMovie: state.currentMovie,
   };
 };
 

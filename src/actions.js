@@ -13,7 +13,6 @@ export function fetchMovies(dispatch, getState) {
       },
     })
     .then((response) => {
-      console.log(response);
       dispatch({
         type: "FETCH_MOVIES_SUCCESS",
         movieList: response.data.data,
@@ -24,10 +23,11 @@ export function fetchMovies(dispatch, getState) {
     });
 }
 
+const SEARCH = "SEARCH";
 export function searchMovies(searchTerm) {
   return function (dispatch) {
     dispatch({
-      type: "SEARCH",
+      type: SEARCH,
       searchQuery: searchTerm,
     });
     dispatch(fetchMovies);
@@ -52,4 +52,23 @@ export function toggleSearch(searchBy) {
     });
     dispatch(fetchMovies);
   };
+}
+
+export function fetchSimilarMovies(dispatch, getState) {
+  const state = getState();
+  const urlString = "https://reactjs-cdp.herokuapp.com/movies/";
+  axios
+    .get(urlString)
+    .then((response) => {
+      console.log(response);
+      if (response.data.data.genres === state.currentMovie.genres[0]) {
+        dispatch({
+          type: "LOAD_SIMILAR_MOVIES",
+          similarMovies: response.data.data,
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

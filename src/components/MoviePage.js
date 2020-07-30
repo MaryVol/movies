@@ -1,27 +1,12 @@
 import React from "react";
 import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
-
-// function SimilarFilms(props) {
-//   let moreMovies = props.movieData.data.data;
-//   if (props.movie.genres[0] === moreMovies.genres[0]) {
-//     {
-//       moreMovies.map((mData) => {
-//         return (
-//           <div key={mData.id}>
-//             <img src={mData.poster_path}></img>
-//             <h4>{mData.title}</h4>
-//             <small>{mData.genres[0]}</small>
-//             <h5>{mData.release_date.split("-")[0]}</h5>
-//           </div>
-//         );
-//       });
-//     }
-//   }
-// }
+import MovieList from "./MovieList";
+import { fetchSimilarMovies } from "../actions";
 
 class MoviePage extends React.Component {
   render() {
+    this.props.dispatch(fetchSimilarMovies);
     let movie = this.props.movie;
     return (
       <main>
@@ -54,14 +39,13 @@ class MoviePage extends React.Component {
                 </div>
               </div>
             </div>
-            <div className={styles.similarFilms}>
-              {/* <SimilarFilms
-                movie={this.props.currentMovie}
-                movieData={this.props.movieList}
-              /> */}
-            </div>
           </div>
         </div>
+        <p className={styles.similar}>You might also like</p>
+        <MovieList
+          movies={this.props.similarMovies}
+          onChange={this.props.onChange}
+        />
         <div className={styles.footer}>
           <h3>
             <b>netflix</b>roulette
@@ -77,6 +61,7 @@ const mapStateToProps = (state) => {
     currentMovie: state.currentMovie,
     sortBy: state.sortBy,
     movieList: state.movieList,
+    similarMovies: state.similarMovies,
   };
 };
 

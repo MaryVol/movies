@@ -9,6 +9,7 @@ const initialState = {
   searchQuery: "",
   counter: "",
   loadingStatus: "loading",
+  similarMovies: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,6 +42,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         loadingStatus: "loaded",
         movieList: action.movieList,
+      };
+    case "LOAD_SIMILAR_MOVIES":
+      return {
+        ...state,
+        similarMovies: action.similarMovies,
       };
     default:
       return state;

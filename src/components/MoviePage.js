@@ -2,9 +2,12 @@ import React from "react";
 import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
-import { fetchMovies, fetchSimilarMovies } from "../actions";
+import { fetchSimilarMovies } from "../actions";
 
 class MoviePage extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchSimilarMovies);
+  }
   render() {
     let movie = this.props.movie;
     return (

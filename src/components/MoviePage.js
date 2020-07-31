@@ -2,11 +2,10 @@ import React from "react";
 import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
-import { fetchSimilarMovies } from "../actions";
+import { fetchMovies, fetchSimilarMovies } from "../actions";
 
 class MoviePage extends React.Component {
   render() {
-    this.props.dispatch(fetchSimilarMovies);
     let movie = this.props.movie;
     return (
       <main>
@@ -44,7 +43,13 @@ class MoviePage extends React.Component {
         <p className={styles.similar}>You might also like</p>
         <MovieList
           movies={this.props.similarMovies}
-          onChange={this.props.onChange}
+          onChange={(similarMovies) => {
+            this.props.dispatch({
+              type: "LOAD_SIMILAR_MOVIES",
+              similarMovies: similarMovies,
+            });
+            this.props.onChange;
+          }}
         />
         <div className={styles.footer}>
           <h3>

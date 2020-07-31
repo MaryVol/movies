@@ -61,6 +61,7 @@ export function fetchSimilarMovies(dispatch, getState) {
   .get(urlString, {
     params: {
       searchBy: "genre",
+      filter: state.currentMovie.genres,
     },
   })
     .then((response) => {

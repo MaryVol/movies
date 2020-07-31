@@ -8,6 +8,11 @@ class MoviePage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchSimilarMovies);
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.currentMovie.id !== prevProps.currentMovie.id) {
+      this.props.dispatch(fetchSimilarMovies);
+    }
+  }
   render() {
     let movie = this.props.movie;
     return (

@@ -7,7 +7,7 @@ import { fetchMovies, toggleSearch } from "../actions";
 
 let searchByOptions = [
   { value: "title", displayName: "Title" },
-  { value: "genre", displayName: "Genre" },
+  { value: "genres", displayName: "Genre" },
 ];
 
 class Header extends React.Component {

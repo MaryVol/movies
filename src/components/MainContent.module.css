@@ -1,6 +1,12 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+.container h3 {
+  background-color: #545454;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
 .movieWrapper {
   display: flex;
   flex-direction: row;
@@ -65,6 +71,7 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  line-height: 50px;
 }
 small {
   display: block;
@@ -108,7 +115,7 @@ small {
 .arrow {
   color: #f65261;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-weight: 100;
   cursor: pointer;
 }

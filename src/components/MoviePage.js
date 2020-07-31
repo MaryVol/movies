@@ -18,11 +18,11 @@ class MoviePage extends React.Component {
     return (
       <main>
         <div className={styles.container}>
+          <h3>
+            <b>netflix</b>roulette
+          </h3>
           <div className={styles.movieBageWrapper}>
             <div className={styles.container}>
-              <h3>
-                <b>netflix</b>roulette
-              </h3>
               <p
                 className={styles.arrow}
                 onClick={() => this.props.onReturnBack(movie)}

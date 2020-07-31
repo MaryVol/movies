@@ -6,6 +6,7 @@ import Toggle from "./Toggle";
 import styless from "./infobar.module.css";
 import { connect } from "react-redux";
 import { fetchMovies, toggleSort } from "../actions";
+import Header from "./Header";
 
 const sortOptions = [
   { value: "release_date", displayName: "Release date" },
@@ -43,6 +44,7 @@ class MoviesPage extends React.Component {
     const movies = this.props.movies;
     return (
       <main>
+        <Header />
         <div className={styless.infoBar}>
           <div className={styless.container}>
             <Counter />

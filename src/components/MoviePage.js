@@ -43,7 +43,12 @@ class MoviePage extends React.Component {
         <p className={styles.similar}>You might also like</p>
         <MovieList
           movies={this.props.similarMovies}
-          onChange={this.props.onChange}
+          onChange={(currentMovie) => {
+            this.props.dispatch({
+              type: "SHOW_MOVIE",
+              currentMovie: currentMovie,
+            });
+          }}
         />
         <div className={styles.footer}>
           <h3>

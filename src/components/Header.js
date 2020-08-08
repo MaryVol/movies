@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import Searcher from "./Searcher";
 import Toggle from "./Toggle";
 import { connect } from "react-redux";
-import { fetchMovies, toggleSearch } from "../actions";
+import { toggleSearch } from "../actions";
 
 let searchByOptions = [
   { value: "title", displayName: "Title" },

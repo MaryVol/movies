@@ -6,24 +6,25 @@ import * as actions from "../actions";
 import { Provider } from "react-redux";
 
 test("main content", () => {
-  const initialState = {
-    currentMovie: null,
-    movieList: [],
-    sortBy: "release_date",
-  };
-  const mockStore = configureStore();
-  let store;
-  beforeEach(() => {
-    store = mockStore(initialState);
-    render(
-      <Provider store={store}>
-        <MainContent />
-      </Provider>
-    );
-  });
+
 });
 // let onreturn = jest.fn();
 // render(<MainContent onReturnBack={onreturn} />);
+const mockStore = configureStore();
+let store;
+const initialState = {
+  currentMovie: null,
+  movieList: [],
+  sortBy: "release_date",
+};
+beforeEach(() => {
+  store = mockStore(initialState);
+  render(
+    <Provider store={store}>
+      <MainContent />
+    </Provider>
+  );
+});
 
 it(">>>check description", () => {
   fireEvent.click(screen.getByText("Transformers"));

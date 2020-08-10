@@ -4,7 +4,6 @@ import configureStore from "redux-mock-store";
 import { render, screen, fireEvent } from "@testing-library/react";
 import * as actions from "../actions";
 import { Provider } from "react-redux";
-import { render as rtlRender } from "@testing-library/react";
 
 test("main content", () => {
   const initialState = {
@@ -13,10 +12,10 @@ test("main content", () => {
     sortBy: "release_date",
   };
   const mockStore = configureStore();
-  let store, wrapper;
+  let store;
   beforeEach(() => {
     store = mockStore(initialState);
-    wrapper = mount(
+    render(
       <Provider store={store}>
         <MainContent />
       </Provider>
@@ -44,5 +43,5 @@ it(">>>check film list render", () => {
 });
 
 it(">>>check movie", () => {
-  expect(wrapper.prop("currentMovie").toEqual(initialState.currentMovie));
+  expect(prop("currentMovie").toEqual(initialState.currentMovie));
 });

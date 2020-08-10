@@ -4,21 +4,13 @@ import configureStore from "redux-mock-store";
 import { render, screen, fireEvent } from "@testing-library/react";
 import * as actions from "../actions";
 import { Provider } from "react-redux";
+import { store } from "../index";
 
-test("main content", () => {
-
-});
+test("main content", () => {});
 // let onreturn = jest.fn();
 // render(<MainContent onReturnBack={onreturn} />);
-const mockStore = configureStore();
-let store;
-const initialState = {
-  currentMovie: null,
-  movieList: [],
-  sortBy: "release_date",
-};
+
 beforeEach(() => {
-  store = mockStore(initialState);
   render(
     <Provider store={store}>
       <MainContent />

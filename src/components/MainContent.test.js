@@ -1,10 +1,8 @@
 import MainContent from "./MainContent";
 import React from "react";
-import configureStore from "redux-mock-store";
 import { render, screen, fireEvent } from "@testing-library/react";
-import * as actions from "../actions";
 import { Provider } from "react-redux";
-import { store } from "../index";
+import { store } from "./storeCreate";
 
 test("main content", () => {});
 // let onreturn = jest.fn();

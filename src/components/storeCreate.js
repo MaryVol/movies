@@ -8,4 +8,5 @@ export function store() {
     reducer,
     composeWithDevTools(applyMiddleware(thunk))
   );
+  return store;
 }

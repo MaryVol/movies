@@ -10,7 +10,7 @@ test("main content", () => {});
 
 beforeEach(() => {
   render(
-    <Provider store={store}>
+    <Provider store={store()}>
       <MainContent />
     </Provider>
   );

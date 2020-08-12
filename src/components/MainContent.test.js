@@ -16,14 +16,14 @@ beforeEach(() => {
   );
 });
 
-it(">>>check description", () => {
-  fireEvent.click(screen.getByText("Transformers"));
-  expect(
-    screen.getByText((content) =>
-      content.toEqual(store.movieList[1].overview)
-    )
-  ).toBeInTheDocument();
-});
+const filmName = await waitForElement(() =>
+  fireEvent.click(screen.getByText("Transformers"))
+);
+filmName
+  .expect(
+    screen.getByText((content) => content.toEqual(store.movieList[1].overview))
+  )
+  .toBeInTheDocument();
 
 it(">>>check back button", () => {
   fireEvent.click(screen.getByText("Back"));

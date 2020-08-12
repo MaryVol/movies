@@ -5,8 +5,18 @@ import { Provider } from "react-redux";
 import { store } from "./storeCreate";
 
 // test("main content", () => {});
-// // let onreturn = jest.fn();
-// // render(<MainContent onReturnBack={onreturn} />);
+
+// it(">>>check back button", () => {
+//   fireEvent.click(screen.getByText("Back"));
+// });
+
+// it(">>>check film list render", () => {
+//   expect(screen.getByText("Transformers")).toBeInTheDocument();
+// });
+
+// it(">>>check movie", () => {
+//   expect(store.currentMovie.toEqual(initialState.currentMovie));
+// });
 
 beforeEach(() => {
   render(
@@ -16,24 +26,28 @@ beforeEach(() => {
   );
 });
 
-const filmName = await waitForElement(
-  () => fireEvent.click(screen.getByText(container, "Transformers")),
-  { container }
-);
-filmName
-  .expect(
-    screen.getByText((content) => content.toEqual(store.movieList[1].overview))
-  )
-  .toBeInTheDocument();
+// let onreturn = jest.fn();
+// render(<MainContent onReturnBack={onreturn} />);
 
-it(">>>check back button", () => {
-  fireEvent.click(screen.getByText("Back"));
-});
+async function movierender() {
+  const filmName = await waitForElement(
+    () => getByText(container, "Transformers"),
+    { container }
+  );
+  fireEvent.click(filmName);
+  filmName
+    .expect(
+      screen.getByText((content) =>
+        content.toEqual(store.movieList[1].overview)
+      )
+    )
+    .toBeInTheDocument();
+}
 
-it(">>>check film list render", () => {
-  expect(screen.getByText("Transformers")).toBeInTheDocument();
-});
-
-it(">>>check movie", () => {
-  expect(store.currentMovie.toEqual(initialState.currentMovie));
-});
+async function samegenres() {
+  const filmGenre = await waitForElement(
+    () => getByText(container, store.movieList[1].genres),
+    { container }
+  );
+  filmGenre.expect(store.movieList.genres.toEqual(store.movieList[1].genres));
+}

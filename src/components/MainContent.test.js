@@ -4,9 +4,9 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./storeCreate";
 
-test("main content", () => {});
-// let onreturn = jest.fn();
-// render(<MainContent onReturnBack={onreturn} />);
+// test("main content", () => {});
+// // let onreturn = jest.fn();
+// // render(<MainContent onReturnBack={onreturn} />);
 
 beforeEach(() => {
   render(
@@ -20,7 +20,7 @@ it(">>>check description", () => {
   fireEvent.click(screen.getByText("Transformers"));
   expect(
     screen.getByText((content) =>
-      content.toEqual(initialState.movieList[1].overview)
+      content.toEqual(store.movieList[1].overview)
     )
   ).toBeInTheDocument();
 });
@@ -34,5 +34,5 @@ it(">>>check film list render", () => {
 });
 
 it(">>>check movie", () => {
-  expect(prop("currentMovie").toEqual(initialState.currentMovie));
+  expect(store.currentMovie.toEqual(initialState.currentMovie));
 });

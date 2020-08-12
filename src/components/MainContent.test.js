@@ -16,8 +16,9 @@ beforeEach(() => {
   );
 });
 
-const filmName = await waitForElement(() =>
-  fireEvent.click(screen.getByText("Transformers"))
+const filmName = await waitForElement(
+  () => fireEvent.click(screen.getByText(container, "Transformers")),
+  { container }
 );
 filmName
   .expect(

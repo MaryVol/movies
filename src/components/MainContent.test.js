@@ -1,10 +1,13 @@
 import MainContent from "./MainContent";
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitForElement,
+} from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./storeCreate";
-
-
 
 // it(">>>check back button", () => {
 //   fireEvent.click(screen.getByText("Back"));
@@ -53,4 +56,3 @@ async function samegenres() {
   );
   filmGenre.expect(store.movieList.genres.toEqual(store.movieList[1].genres));
 }
-

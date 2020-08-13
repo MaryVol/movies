@@ -5,21 +5,11 @@ import {
   screen,
   fireEvent,
   waitForElement,
+  container,
+  findByText,
 } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./storeCreate";
-
-// it(">>>check back button", () => {
-//   fireEvent.click(screen.getByText("Back"));
-// });
-
-// it(">>>check film list render", () => {
-//   expect(screen.getByText("Transformers")).toBeInTheDocument();
-// });
-
-// it(">>>check movie", () => {
-//   expect(store.currentMovie.toEqual(initialState.currentMovie));
-// });
 
 beforeEach(() => {
   render(
@@ -29,14 +19,12 @@ beforeEach(() => {
   );
 });
 
-// let onreturn = jest.fn();
-// render(<MainContent onReturnBack={onreturn} />);
+test("movies render", movierender);
+test("similar genres", samegenres);
 
-test("movies render", movierender());
-test("similar genres", samegenres());
 async function movierender() {
   const filmName = await waitForElement(
-    () => getByText(container, "Transformers"),
+    () => findByText(container, "Transformers"),
     { container }
   );
   fireEvent.click(filmName);
@@ -51,8 +39,23 @@ async function movierender() {
 
 async function samegenres() {
   const filmGenre = await waitForElement(
-    () => getByText(container, store.movieList[1].genres),
+    () => findByText(container, store.movieList[1].genres),
     { container }
   );
   filmGenre.expect(store.movieList.genres.toEqual(store.movieList[1].genres));
 }
+
+// let onreturn = jest.fn();
+// render(<MainContent onReturnBack={onreturn} />);
+
+// it(">>>check back button", () => {
+//   fireEvent.click(screen.getByText("Back"));
+// });
+
+// it(">>>check film list render", () => {
+//   expect(screen.getByText("Transformers")).toBeInTheDocument();
+// });
+
+// it(">>>check movie", () => {
+//   expect(store.currentMovie.toEqual(initialState.currentMovie));
+// });

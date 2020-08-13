@@ -29,7 +29,8 @@ beforeEach(() => {
 // let onreturn = jest.fn();
 // render(<MainContent onReturnBack={onreturn} />);
 
-test("main content", () => {
+test("movies render", movierender());
+test("similar genres", samegenres());
 async function movierender() {
   const filmName = await waitForElement(
     () => getByText(container, "Transformers"),
@@ -52,4 +53,4 @@ async function samegenres() {
   );
   filmGenre.expect(store.movieList.genres.toEqual(store.movieList[1].genres));
 }
-});
+

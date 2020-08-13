@@ -9,6 +9,9 @@
     "test": "jest"
   },
   "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     },
@@ -19,7 +22,7 @@
   "author": "MaryVol",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@testing-library/react": "^10.2.1",
@@ -42,6 +45,7 @@
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^5.10.1",
     "axios": "^0.19.2",
+    "babel-jest": "^26.3.0",
     "core-js": "^3.6.5",
     "identity-obj-proxy": "^3.0.0",
     "jquery": "^3.5.1",

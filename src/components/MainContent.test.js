@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./storeCreate";
 
-// test("main content", () => {});
+
 
 // it(">>>check back button", () => {
 //   fireEvent.click(screen.getByText("Back"));
@@ -29,6 +29,7 @@ beforeEach(() => {
 // let onreturn = jest.fn();
 // render(<MainContent onReturnBack={onreturn} />);
 
+test("main content", () => {
 async function movierender() {
   const filmName = await waitForElement(
     () => getByText(container, "Transformers"),
@@ -51,3 +52,4 @@ async function samegenres() {
   );
   filmGenre.expect(store.movieList.genres.toEqual(store.movieList[1].genres));
 }
+});

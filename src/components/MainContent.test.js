@@ -5,11 +5,11 @@ import {
   screen,
   fireEvent,
   waitForElement,
-  container,
-  findByText,
+  waitFor,
 } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./storeCreate";
+import reducer from "../reducers";
 
 beforeEach(() => {
   render(
@@ -20,30 +20,24 @@ beforeEach(() => {
 });
 
 test("movies render", movierender);
-test("similar genres", samegenres);
+test("film genre test", filmgenre);
 
 async function movierender() {
-  const filmName = await waitForElement(
-    () => findByText(container, "Transformers"),
-    { container }
+  const filmName = await waitForElement(() =>
+    screen.getAllByTestId("moviespage")
   );
-  fireEvent.click(filmName);
-  filmName
-    .expect(
-      screen.getByText((content) =>
-        content.toEqual(store.movieList[1].overview)
-      )
-    )
-    .toBeInTheDocument();
+  fireEvent.click(screen.getByText("Transformers 7"));
+  expect(screen.getByText(/Plot/)).toBeInTheDocument();
 }
 
-async function samegenres() {
-  const filmGenre = await waitForElement(
-    () => findByText(container, store.movieList[1].genres),
-    { container }
+async function filmgenre() {
+  const filmGenre = await waitFor(() =>
+    screen.getAllByTestId("moviegenre"),
   );
-  filmGenre.expect(store.movieList.genres.toEqual(store.movieList[1].genres));
+  // expect(filmGenre).toEqual(/Action/)
+  expect((store().getState().similarMovies.genres).toEqual(store().getState().currentMovie.genres));
 }
+
 
 // let onreturn = jest.fn();
 // render(<MainContent onReturnBack={onreturn} />);

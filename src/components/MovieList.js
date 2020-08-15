@@ -12,9 +12,9 @@ function MovieList(props) {
             onClick={() => props.onChange(mData)}
           >
             <img src={mData.poster_path}></img>
-            <h4>{mData.title}</h4>
-            <small>{mData.genres[0]}</small>
-            <h5>{mData.release_date.split('-')[0]}</h5>
+            <h4 data-testid="moviespage">{mData.title}</h4>
+            <small data-testid="moviegenre">{mData.genres[0]}</small>
+            <h5>{mData.release_date.split("-")[0]}</h5>
           </div>
         );
       })}

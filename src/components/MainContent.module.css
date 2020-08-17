@@ -1,6 +1,9 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+a {
+  text-decoration: none;
+}
 .container h3 {
   background-color: #545454;
   padding-top: 20px;

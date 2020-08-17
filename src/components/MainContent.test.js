@@ -9,7 +9,6 @@ import {
 } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./storeCreate";
-import reducer from "../reducers";
 
 beforeEach(() => {
   render(
@@ -35,7 +34,7 @@ async function filmgenre() {
     screen.getAllByTestId("moviegenre"),
   );
   // expect(filmGenre).toEqual(/Action/)
-  expect((store().getState().similarMovies.genres).toEqual(store().getState().currentMovie.genres));
+  expect(store().getState().similarMovies.genres).toEqual(store().getState().currentMovie.genres);
 }
 
 

@@ -48,9 +48,10 @@ class MoviePage extends React.Component {
             </div>
           </div>
         </div>
-        <p className={styles.similar}>You might also like</p>
+        <p className={styles.similar} data-testid="moviegenre">
+          You might also like
+        </p>
         <MovieList
-          
           movies={this.props.similarMovies}
           onChange={(currentMovie) => {
             this.props.dispatch({

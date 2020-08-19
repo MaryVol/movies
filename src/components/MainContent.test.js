@@ -32,8 +32,8 @@ async function movierender() {
 async function filmgenre() {
   const filmGenre = await waitFor(() => screen.getByTestId("moviegenre"));
   // expect(filmGenre).toEqual(/Action/)
-  expect(store().getState().similarMovies.genres).toEqual(
-    store().getState().currentMovie.genres
+  expect(store.getState().similarMovies.genres).toEqual(
+    store.getState().currentMovie.genres
   );
 }
 

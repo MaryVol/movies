@@ -13,7 +13,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 ReactDOM.render(
   <Provider store={store()}>
     <BrowserRouter>
-      <App />
+      <Route path="/" exact component={App} />
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

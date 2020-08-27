@@ -3,6 +3,7 @@ import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
 import { fetchSimilarMovies } from "../actions";
+import { Link } from "react-router-dom";
 
 class MoviePage extends React.Component {
   componentDidMount() {
@@ -27,7 +28,9 @@ class MoviePage extends React.Component {
                 className={styles.arrow}
                 onClick={() => this.props.onReturnBack(movie)}
               >
-                <i className="fas fa-chevron-left"></i>Back
+                <Link to="/">
+                  <i className="fas fa-chevron-left"></i>Back
+                </Link>
               </p>
               <div className={styles.movieCard}>
                 <img src={movie.poster_path} alt="movie poster" />

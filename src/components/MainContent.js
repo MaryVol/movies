@@ -2,20 +2,27 @@ import React from "react";
 import MoviesPage from "./MoviesPage";
 import MoviePage from "./MoviePage";
 import { connect } from "react-redux";
+import { Route } from "react-router";
 
 class MainContent extends React.Component {
   render() {
     const { movieList } = this.props;
     if (this.props.currentMovie) {
       return (
-        <MoviePage
-          movie={this.props.currentMovie}
-          onReturnBack={(currentMovie) =>
-            this.props.dispatch({
-              type: "SHOW_MOVIE",
-              currentMovie: null,
-            })
-          }
+        <Route
+          path="/:id"
+          render={(props) => (
+            <MoviePage
+              {...props}
+              movie={this.props.currentMovie}
+              onReturnBack={(currentMovie) =>
+                this.props.dispatch({
+                  type: "SHOW_MOVIE",
+                  currentMovie: null,
+                })
+              }
+            />
+          )}
         />
       );
     }

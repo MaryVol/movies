@@ -30,7 +30,23 @@ class MainContent extends React.Component {
     return (
       <Switch>
         <Route exact path="/" component={MoviesPage} />
-        <Route exact path="/movie/:movieId" component={MoviePage} />
+        <Route
+          exact
+          path="/movie/:movieId"
+          component={MoviePage}
+          // render={(props) => (
+          //   <MoviePage
+          //     {...props}
+          //     movie={this.props.currentMovie}
+          //     onReturnBack={(currentMovie) =>
+          //       this.props.dispatch({
+          //         type: "SHOW_MOVIE",
+          //         currentMovie: null,
+          //       })
+          //     }
+          //   />
+          // )}
+        />
       </Switch>
     );
   }

@@ -28,7 +28,7 @@ class MoviePage extends React.Component {
                 className={styles.arrow}
                 onClick={() => this.props.onReturnBack(movie)}
               >
-                <Link to="/movie">
+                <Link to="/">
                   <i className="fas fa-chevron-left"></i>Back
                 </Link>
               </p>

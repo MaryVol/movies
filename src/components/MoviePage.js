@@ -14,6 +14,7 @@ class MoviePage extends React.Component {
       this.props.dispatch(fetchSimilarMovies);
     }
   }
+
   render() {
     let movie = this.props.movie;
     return (
@@ -26,11 +27,9 @@ class MoviePage extends React.Component {
             <div className={styles.container}>
               <p
                 className={styles.arrow}
-                onClick={() => this.props.onReturnBack(movie)}
+                onClick={() => this.props.history.goBack()}
               >
-                <Link to="/">
-                  <i className="fas fa-chevron-left"></i>Back
-                </Link>
+                <i className="fas fa-chevron-left"></i>Back
               </p>
               <div className={styles.movieCard}>
                 <img src={movie.poster_path} alt="movie poster" />

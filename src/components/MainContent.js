@@ -8,29 +8,6 @@ class MainContent extends React.Component {
   render() {
     const { movieList } = this.props;
 
-
-    // if (this.props.currentMovie) {
-    //   return (
-    //     <Route
-    //       path="/:id"
-    //       render={(props) => (
-    //         <MoviePage
-    //           {...props}
-    //           movie={this.props.currentMovie}
-    //           onReturnBack={(currentMovie) =>
-    //             this.props.dispatch({
-    //               type: "SHOW_MOVIE",
-    //               currentMovie: null,
-    //             })
-    //           }
-    //         />
-    //       )}
-    //     />
-    //   );
-    // }
-    // return <MoviesPage movies={movieList} sortBy={this.props.sortBy} />;
-
-    
     return (
       <Switch>
         <Route exact path="/" component={MoviesPage} />
@@ -40,12 +17,12 @@ class MainContent extends React.Component {
           component={() => (
             <MoviePage
               movie={this.props.currentMovie}
-              onReturnBack={(currentMovie) =>
-                this.props.dispatch({
-                  type: "SHOW_MOVIE",
-                  currentMovie: null,
-                })
-              }
+              // onReturnBack={(currentMovie) =>
+              //   this.props.dispatch({
+              //     type: "SHOW_MOVIE",
+              //     currentMovie: null,
+              //   })
+              // }
             />
           )}
         />

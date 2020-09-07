@@ -12,7 +12,7 @@ function MovieList(props) {
             className={styles.cardWrapper}
             onClick={() => props.onChange(mData)}
           >
-            <Link to={`movie/${mData.title}`}>
+            <Link to={`/movie/${mData.title}`}>
               <img src={mData.poster_path}></img>
 
               <h4 data-testid="moviespage">{mData.title}</h4>

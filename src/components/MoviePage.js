@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 class MoviePage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchSimilarMovies);
+    console.log(this.props.match);
   }
   componentDidUpdate(prevProps) {
     if (this.props.currentMovie.id !== prevProps.currentMovie.id) {

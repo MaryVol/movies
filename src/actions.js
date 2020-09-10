@@ -75,3 +75,19 @@ export function fetchSimilarMovies(dispatch, getState) {
       console.log(error);
     });
 }
+
+export function fetchMovie(dispatch) {
+  const urlString = `https://reactjs-cdp.herokuapp.com/movies/${movieId}`;
+  axios
+    .get(urlString)
+    .then((response) => {
+      console.log(response);
+      dispatch({
+        type: "LOAD_MOVIE",
+        currentMovie: response.data,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}

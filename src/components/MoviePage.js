@@ -3,12 +3,10 @@ import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
 import { fetchSimilarMovies } from "../actions";
-import { Link } from "react-router-dom";
 
 class MoviePage extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchSimilarMovies);
-    console.log(this.props.match);
+    this.props.dispatch(fetchMovie);
   }
   componentDidUpdate(prevProps) {
     if (this.props.currentMovie.id !== prevProps.currentMovie.id) {

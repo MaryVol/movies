@@ -6,6 +6,7 @@ import { fetchSimilarMovies } from "../actions";
 
 class MoviePage extends React.Component {
   componentDidMount() {
+    console.log(this.props);
     const movieId = this.props.match.params.movieId;
     this.props.dispatch(fetchMovie(movieId));
   }

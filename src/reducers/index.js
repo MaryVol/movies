@@ -48,6 +48,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         similarMovies: action.similarMovies,
       };
+      case "LOAD_MOVIE":
+        return {
+          ...state,
+          currentMovie: action.currentMovie,
+        };
     default:
       return state;
   }

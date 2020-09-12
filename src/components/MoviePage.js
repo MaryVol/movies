@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
-import { fetchSimilarMovies } from "../actions";
+import { fetchSimilarMovies, fetchMovie } from "../actions";
 
 class MoviePage extends React.Component {
   componentDidMount() {
     console.log(this.props);
     const movieId = this.props.match.params.movieId;
-    this.props.dispatch(fetchMovie(movieId));
+    this.props.dispatch(fetchMovie);
   }
   componentDidUpdate(prevProps) {
     if (this.props.currentMovie.id !== prevProps.currentMovie.id) {
@@ -17,7 +17,7 @@ class MoviePage extends React.Component {
   }
 
   render() {
-    let movie = this.props.movie;
+    let movie = this.props.currentMovie;
     return (
       <main>
         <div className={styles.container}>

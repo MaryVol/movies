@@ -8,7 +8,7 @@ class MoviePage extends React.Component {
   componentDidMount() {
     console.log(this.props);
     const movieId = this.props.match.params.movieId;
-    this.props.dispatch(fetchMovie);
+    this.props.dispatch(fetchMovie(movieId));
   }
   componentDidUpdate(prevProps) {
     if (this.props.currentMovie.id !== prevProps.currentMovie.id) {

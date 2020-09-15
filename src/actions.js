@@ -76,9 +76,9 @@ export function fetchSimilarMovies(dispatch, getState) {
     });
 }
 
-export function fetchMovie() {
+export function fetchMovie(movieId) {
   return function fetchMovieThunk(dispatch) {
-    const urlString = `https://reactjs-cdp.herokuapp.com/movies/1`;
+    const urlString = `https://reactjs-cdp.herokuapp.com/movies/${movieId}`;
     axios
       .get(urlString)
       .then((response) => {

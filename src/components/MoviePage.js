@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
-import { fetchSimilarMovies, fetchMovieThunk } from "../actions";
+import { fetchSimilarMovies, fetchMovie } from "../actions";
 
 class MoviePage extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     const movieId = this.props.match.params.movieId;
-    // this.props.dispatch(fetchMovie(movieId));
+    const thunk = fetchMovie(movieId)
+    this.props.dispatch(thunk)
   }
   componentDidUpdate(prevProps) {
     if (this.props.currentMovie.id !== prevProps.currentMovie.id) {

@@ -76,18 +76,20 @@ export function fetchSimilarMovies(dispatch, getState) {
     });
 }
 
-export function fetchMovieThunk(dispatch) {
-  const urlString = `https://reactjs-cdp.herokuapp.com/movies/1`;
-  axios
-    .get(urlString)
-    .then((response) => {
-      console.log(response);
-      dispatch({
-        type: "LOAD_MOVIE",
-        currentMovie: response.data,
+export function fetchMovie() {
+  return function fetchMovieThunk(dispatch) {
+    const urlString = `https://reactjs-cdp.herokuapp.com/movies/1`;
+    axios
+      .get(urlString)
+      .then((response) => {
+        console.log(response);
+        dispatch({
+          type: "LOAD_MOVIE",
+          currentMovie: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  };
 }

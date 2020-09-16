@@ -3,11 +3,13 @@ import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
 import { fetchSimilarMovies, fetchMovie } from "../actions";
+import { LoadingIndicator } from "./MoviesPage";
 
 class MoviePage extends React.Component {
   componentDidMount() {
-    const thunk = fetchMovie(this.props.match.params.movieId)
-    this.props.dispatch(thunk)
+    if (!this.props.currentMovie) return <LoadingIndicator />
+    this.props.dispatch(fetchMovie(this.props.match.params.movieId))
+    console.log(this.props.match)
   }
   componentDidUpdate(prevProps) {
     if (this.props.currentMovie.id !== prevProps.currentMovie.id) {

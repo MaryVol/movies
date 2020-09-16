@@ -13,7 +13,7 @@ const sortOptions = [
   { value: "rating", displayName: "Rating" },
 ];
 
-function LoadingIndicator() {
+export function LoadingIndicator() {
   return <div className={styless.loader}></div>;
 }
 

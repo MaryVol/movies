@@ -14,6 +14,9 @@ class MoviePage extends React.Component {
     if (this.props.currentMovie !== null && prevProps.currentMovie === null) {
       this.props.dispatch(fetchSimilarMovies);
     }
+    if (this.props.match.url !== prevProps.match.url) {
+      this.props.dispatch(fetchMovie(this.props.match.params.movieId));
+    }
   }
 
   render() {

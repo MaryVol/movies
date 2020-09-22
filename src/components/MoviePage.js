@@ -3,11 +3,11 @@ import styles from "./MainContent.module.css";
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
 import { fetchSimilarMovies, fetchMovie } from "../actions";
+import { LoadingIndicator } from "./MoviesPage";
 
 class MoviePage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchMovie(this.props.match.params.movieId));
-    if (!this.props.currentMovie) return "loading...";
   }
 
   componentDidUpdate(prevProps) {
@@ -18,6 +18,7 @@ class MoviePage extends React.Component {
 
   render() {
     let movie = this.props.currentMovie;
+    if (!this.props.currentMovie) return <LoadingIndicator />;
     return (
       <main>
         <div className={styles.container}>

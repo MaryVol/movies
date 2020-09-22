@@ -80,7 +80,6 @@ export function fetchMovie(movieId) {
   return function fetchMovieThunk(dispatch) {
     dispatch({
       type: "START_LOAD_MOVIE",
-      currentMovie: null,
     });
     const urlString = `https://reactjs-cdp.herokuapp.com/movies/${movieId}`;
     axios

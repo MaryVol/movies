@@ -56,7 +56,7 @@ const reducer = (state = initialState, action) => {
       case "START_LOAD_MOVIE":
         return {
           ...state,
-          currentMovie: action.currentMovie,
+          currentMovie: null,
         };
     default:
       return state;

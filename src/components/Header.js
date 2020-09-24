@@ -4,6 +4,7 @@ import Searcher from "./Searcher";
 import Toggle from "./Toggle";
 import { connect } from "react-redux";
 import { toggleSearch } from "../actions";
+import { Route, Switch } from "react-router";
 
 let searchByOptions = [
   { value: "title", displayName: "Title" },
@@ -19,7 +20,8 @@ class Header extends React.Component {
             <b>netflix</b>roulette
           </h3>
           <h1>find your movie</h1>
-          <Searcher key={this.props.searchQuery} />
+          <Route path="/" component={Searcher} />
+          {/* <Searcher key={this.props.searchQuery} /> */}
           <Toggle
             name="Search by"
             options={searchByOptions}

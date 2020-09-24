@@ -4,15 +4,19 @@ import { connect } from "react-redux";
 import { searchMovies } from "../actions";
 
 class Searcher extends React.Component {
+  componentDidUpdate() {
+    this.props.dispatch(searchMovies(this.props.location.search.movieTitle));
+  }
   constructor(props) {
     super(props);
     this.input = React.createRef();
-    this.state = {
-      searchQuery: this.props.searchQuery,
-    };
+    // this.state = {
+    //   searchQuery: this.props.searchQuery,
+    // };
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className={styles.searcherWrapper}>
         <form
@@ -25,7 +29,7 @@ class Searcher extends React.Component {
             type="text"
             className={styles.search}
             placeholder="Enter a movie"
-            defaultValue={this.props.searchQuery}
+            defaultValue={this.props.location.search}
             ref={this.input}
           />
           <button className={styles.srcBtn} type="submit">

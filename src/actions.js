@@ -23,16 +23,35 @@ export function fetchMovies(dispatch, getState) {
     });
 }
 
-const SEARCH = "SEARCH";
-export function searchMovies(searchTerm) {
-  return function (dispatch) {
-    dispatch({
-      type: SEARCH,
-      searchQuery: searchTerm,
-    });
-    dispatch(fetchMovies);
+// const SEARCH = "SEARCH";
+// export function searchMovies(searchTerm) {
+//   return function (dispatch) {
+//     dispatch({
+//       type: SEARCH,
+//       searchQuery: searchTerm,
+//     });
+//     dispatch(fetchMovies);
+//   };
+// }
+
+export function searchMovies(movieTitle) {
+  return function searchMoviesThunk(dispatch) {
+    const urlString = `https://reactjs-cdp.herokuapp.com/movies/${movieTitle}`;
+    axios
+      .get(urlString)
+      .then((response) => {
+        dispatch({
+          type: "SEARCH",
+          searchQuery: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 }
+
+
 
 export function toggleSort(sortBy) {
   return function (dispatch) {

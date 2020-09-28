@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchQuery: action.searchQuery,
-        loadingStatus: "loading",
+        // loadingStatus: "loading",
       };
     case "FETCH_MOVIES_SUCCESS":
       return {

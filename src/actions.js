@@ -34,15 +34,25 @@ export function fetchMovies(dispatch, getState) {
 //   };
 // }
 
-export function searchMovies(movieTitle) {
+export function searchMovies(searchQuery, sortBy, searchBy) {
   return function searchMoviesThunk(dispatch) {
-    const urlString = `https://reactjs-cdp.herokuapp.com/movies/${movieTitle}`;
+    const urlString = `https://reactjs-cdp.herokuapp.com/movies/${searchQuery}`;
     axios
-      .get(urlString)
+      .get(urlString, {
+        params: {
+          search: searchQuery,
+          sortBy: sortBy,
+          sortOrder: "desc",
+          searchBy: searchBy,
+        },
+      })
       .then((response) => {
+        console.log(response);
         dispatch({
           type: "SEARCH",
-          searchQuery: response.data,
+          searchQuery: response.config.params.search,
+          sortBy: response.config.params.sortBy,
+          searchBy: response.config.params.searchBy,
         });
       })
       .catch((error) => {
@@ -50,8 +60,6 @@ export function searchMovies(movieTitle) {
       });
   };
 }
-
-
 
 export function toggleSort(sortBy) {
   return function (dispatch) {

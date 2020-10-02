@@ -36,6 +36,7 @@ export function fetchMovies(dispatch, getState) {
 
 export function searchMovies(searchQuery, sortBy, searchBy) {
   return function searchMoviesThunk(dispatch) {
+    
     const urlString = `https://reactjs-cdp.herokuapp.com/movies/${searchQuery}`;
     axios
       .get(urlString, {

@@ -6,7 +6,8 @@ import { withRouter } from "react-router";
 
 class Searcher extends React.Component {
   componentDidUpdate() {
-    this.props.dispatch(searchMovies(this.props.location.search.movieTitle));
+    this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
+    console.log(this.props)
   }
   constructor(props) {
     super(props);
@@ -17,7 +18,6 @@ class Searcher extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={styles.searcherWrapper}>
         <form
@@ -25,8 +25,9 @@ class Searcher extends React.Component {
             event.preventDefault();
             this.props.dispatch(searchMovies(this.input.current.value));
             this.props.history.push(
-              `/${this.props.searchQuery}/sort=${this.props.sortBy}/search=${this.props.searchBy}`
+              `/movies/?q=${this.props.searchQuery}`
             );
+            console.log(this.props);
           }}
         >
           <input

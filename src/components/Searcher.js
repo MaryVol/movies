@@ -3,8 +3,15 @@ import styles from "./Header.module.css";
 import { connect } from "react-redux";
 import { searchMovies } from "../actions";
 import { withRouter } from "react-router";
+import QueryString from "qs";
+
 
 class Searcher extends React.Component {
+
+  componentDidMount() {
+    const values = QueryString.parse(this.props.location.search)
+    console.log(values)
+  }
   componentDidUpdate() {
     this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
     console.log(this.props)
@@ -12,9 +19,6 @@ class Searcher extends React.Component {
   constructor(props) {
     super(props);
     this.input = React.createRef();
-    // this.state = {
-    //   searchQuery: this.props.searchQuery,
-    // };
   }
 
   render() {
@@ -25,7 +29,7 @@ class Searcher extends React.Component {
             event.preventDefault();
             this.props.dispatch(searchMovies(this.input.current.value));
             this.props.history.push(
-              `/movies/?q=${this.props.searchQuery}`
+              `/movies`
             );
             console.log(this.props);
           }}

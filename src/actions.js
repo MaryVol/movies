@@ -34,17 +34,17 @@ export function fetchMovies(dispatch, getState) {
 //   };
 // }
 
-export function searchMovies(searchQuery, sortBy, searchBy) {
+export function searchMovies(props) {
   return function searchMoviesThunk(dispatch) {
     
-    const urlString = `https://reactjs-cdp.herokuapp.com/movies/${searchQuery}`;
+    const urlString = `https://reactjs-cdp.herokuapp.com/movies/${props.searchQuery}`;
     axios
       .get(urlString, {
         params: {
-          search: searchQuery,
-          sortBy: sortBy,
+          search: props.searchQuery,
+          sortBy: props.sortBy,
           sortOrder: "desc",
-          searchBy: searchBy,
+          searchBy: props.searchBy,
         },
       })
       .then((response) => {

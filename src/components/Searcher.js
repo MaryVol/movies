@@ -9,10 +9,25 @@ class Searcher extends React.Component {
   
   componentDidMount() {
     this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
+    const defaultProps = {
+      searchBy: "title",
+      sortBy: "release_date",
+      searchQuery: "",
+    };
+    const fromURL = qs.parse(this.props.location.search.slice(1));
+    const props = { ...defaultProps, ...fromURL };
   }
 
   componentDidUpdate() {
     this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
+    const defaultProps = {
+      searchBy: "title",
+      sortBy: "release_date",
+      searchQuery: "",
+    };
+    const fromURL = qs.parse(this.props.location.search.slice(1));
+    const props = { ...defaultProps, ...fromURL };
+    console.log(props)
   }
   constructor(props) {
     super(props);
@@ -21,14 +36,6 @@ class Searcher extends React.Component {
   
 
   render() {
-    const defaultProps = {
-      searchBy: "title",
-      sortBy: "rating",
-      searchQuery: "",
-    };
-    const fromURL = qs.parse(this.props.location.search.slice(1));
-    const props = { ...defaultProps, ...fromURL };
-    console.log(props);
     return (
       <div className={styles.searcherWrapper}>
         <form

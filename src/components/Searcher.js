@@ -40,19 +40,14 @@ class Searcher extends React.Component {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            const defaultProps = {
-              searchBy: "title",
-              sortBy: "release_date",
-              searchQuery: "",
-            };
+            const fromURL = qs.parse(this.props.location.search.slice(1))
             const currentParams = {
+              ...fromURL,
               searchQuery: this.input.current.value,
-              searchBy: "title",
-              sortBy: "release_date",
             }
-            const props = qs.stringify({ ...defaultProps, ...currentParams })
+            const params = { ...fromURL, ...currentParams }
             this.props.history.push({
-              search: `?${props}`,
+              search: `?${params}`,
             });
           }}
         >

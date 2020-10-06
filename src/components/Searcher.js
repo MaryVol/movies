@@ -45,10 +45,12 @@ class Searcher extends React.Component {
               sortBy: "release_date",
               searchQuery: "",
             };
-            const formURL = {
+            const currentParams = {
               searchQuery: this.input.current.value,
+              searchBy: "title",
+              sortBy: "release_date",
             }
-            const props = qs.stringify({ ...defaultProps, ...formURL })
+            const props = qs.stringify({ ...defaultProps, ...currentParams })
             this.props.history.push({
               search: `?${props}`,
             });

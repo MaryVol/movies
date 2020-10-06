@@ -34,16 +34,23 @@ class Searcher extends React.Component {
   }
 
   render() {
+    
     return (
       <div className={styles.searcherWrapper}>
         <form
           onSubmit={(event) => {
             event.preventDefault();
+            const defaultProps = {
+              searchBy: "title",
+              sortBy: "release_date",
+              searchQuery: "",
+            };
+            const formURL = {
+              searchQuery: this.input.current.value,
+            }
+            const props = qs.stringify({ ...defaultProps, ...formURL })
             this.props.history.push({
-              search: `?searchQuery=${this.input.current.value}/${qs.stringify({
-                sortBy: "release_date",
-                searchBy: "title",
-              })}`,
+              search: `?${props}`,
             });
           }}
         >

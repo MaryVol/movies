@@ -8,7 +8,6 @@ import qs from "qs";
 class Searcher extends React.Component {
   
   componentDidMount() {
-    this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
     const defaultProps = {
       searchBy: "title",
       sortBy: "release_date",
@@ -16,6 +15,7 @@ class Searcher extends React.Component {
     };
     const fromURL = qs.parse(this.props.location.search.slice(1));
     const props = { ...defaultProps, ...fromURL };
+    this.props.dispatch(searchMovies(props));
   }
 
   componentDidUpdate() {
@@ -27,7 +27,6 @@ class Searcher extends React.Component {
     };
     const fromURL = qs.parse(this.props.location.search.slice(1));
     const props = { ...defaultProps, ...fromURL };
-    console.log(props)
   }
   constructor(props) {
     super(props);

@@ -3,40 +3,39 @@ import styles from "./Header.module.css";
 import { connect } from "react-redux";
 import { searchMovies } from "../actions";
 import { withRouter } from "react-router";
-import QueryString from "qs";
+import qs from "qs";
 
 class Searcher extends React.Component {
+  
   componentDidMount() {
-    this.props.history.push(
-      {
-        pathname: "/",
-        search: "",
-      },
-      {
-        sortBy: "release_date",
-        searchBy: "title",
-      }
-    );
-    const values = QueryString.parse(this.props.location.search);
-    console.log(values);
+    this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
   }
+
   componentDidUpdate() {
     this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
-    console.log(this.props);
   }
   constructor(props) {
     super(props);
     this.input = React.createRef();
   }
+  
 
   render() {
+    const defaultProps = {
+      searchBy: "title",
+      sortBy: "rating",
+      searchQuery: "",
+    };
+    const fromURL = qs.parse(this.props.location.search.slice(1));
+    const props = { ...defaultProps, ...fromURL };
+    console.log(props);
     return (
       <div className={styles.searcherWrapper}>
         <form
           onSubmit={(event) => {
             event.preventDefault();
             this.props.dispatch(searchMovies(this.input.current.value));
-            this.props.history.push(`/movies`);
+            // this.props.history.push(`/movies`);
             console.log(this.props);
           }}
         >

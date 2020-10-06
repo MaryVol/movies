@@ -7,6 +7,8 @@ import styless from "./infobar.module.css";
 import { connect } from "react-redux";
 import { fetchMovies, toggleSort } from "../actions";
 import Header from "./Header";
+import { withRouter } from "react-router";
+import qs from "qs";
 
 const sortOptions = [
   { value: "release_date", displayName: "Release date" },
@@ -52,7 +54,19 @@ class MoviesPage extends React.Component {
               name="Sort by"
               options={sortOptions}
               value={this.props.sortBy}
-              onChange={(sortBy) => this.props.dispatch(toggleSort(sortBy))}
+              onChange={(sortBy) => {
+                this.props.dispatch(toggleSort(sortBy));
+                const fromURL = qs.parse(this.props.location.search.slice(1));
+                const currentParams = {
+                  ...fromURL,
+                  sortBy: sortBy,
+                };
+                const params = { ...fromURL, ...currentParams };
+                this.props.history.push({
+                  search: `?${params}`,
+                });
+                console.log(this.props);
+              }}
             />
           </div>
         </div>
@@ -88,4 +102,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MoviesPage);
+export default connect(mapStateToProps)(withRouter(MoviesPage));

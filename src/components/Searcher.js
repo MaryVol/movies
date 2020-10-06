@@ -18,15 +18,17 @@ class Searcher extends React.Component {
     console.log(props);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const defaultProps = {
       searchBy: "title",
       sortBy: "release_date",
       searchQuery: "",
     };
-    const fromURL = qs.parse(this.props.location.search.slice(1));
-    const props = { ...defaultProps, ...fromURL };
-    this.props.dispatch(searchMovies(props));
+    if (this.props.location.search != prevProps.location.search) {
+      const fromURL = qs.parse(this.props.location.search.slice(1));
+      const props = { ...defaultProps, ...fromURL };
+      this.props.dispatch(searchMovies(props));
+    }
   }
   constructor(props) {
     super(props);

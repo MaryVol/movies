@@ -19,7 +19,6 @@ class Searcher extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
     const defaultProps = {
       searchBy: "title",
       sortBy: "release_date",
@@ -27,6 +26,7 @@ class Searcher extends React.Component {
     };
     const fromURL = qs.parse(this.props.location.search.slice(1));
     const props = { ...defaultProps, ...fromURL };
+    this.props.dispatch(searchMovies(props));
   }
   constructor(props) {
     super(props);

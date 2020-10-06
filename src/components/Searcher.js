@@ -5,16 +5,24 @@ import { searchMovies } from "../actions";
 import { withRouter } from "react-router";
 import QueryString from "qs";
 
-
 class Searcher extends React.Component {
-
   componentDidMount() {
-    const values = QueryString.parse(this.props.location.search)
-    console.log(values)
+    this.props.history.push(
+      {
+        pathname: "/",
+        search: "",
+      },
+      {
+        sortBy: "release_date",
+        searchBy: "title",
+      }
+    );
+    const values = QueryString.parse(this.props.location.search);
+    console.log(values);
   }
   componentDidUpdate() {
     this.props.dispatch(searchMovies(this.props.location.search.searchQuery));
-    console.log(this.props)
+    console.log(this.props);
   }
   constructor(props) {
     super(props);
@@ -28,9 +36,7 @@ class Searcher extends React.Component {
           onSubmit={(event) => {
             event.preventDefault();
             this.props.dispatch(searchMovies(this.input.current.value));
-            this.props.history.push(
-              `/movies`
-            );
+            this.props.history.push(`/movies`);
             console.log(this.props);
           }}
         >

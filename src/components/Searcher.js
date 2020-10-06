@@ -6,7 +6,6 @@ import { withRouter } from "react-router";
 import qs from "qs";
 
 class Searcher extends React.Component {
-  
   componentDidMount() {
     const defaultProps = {
       searchBy: "title",
@@ -16,7 +15,7 @@ class Searcher extends React.Component {
     const fromURL = qs.parse(this.props.location.search.slice(1));
     const props = { ...defaultProps, ...fromURL };
     this.props.dispatch(searchMovies(props));
-    console.log(props)
+    console.log(props);
   }
 
   componentDidUpdate() {
@@ -33,7 +32,6 @@ class Searcher extends React.Component {
     super(props);
     this.input = React.createRef();
   }
-  
 
   render() {
     return (
@@ -41,9 +39,12 @@ class Searcher extends React.Component {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            this.props.dispatch(searchMovies(this.input.current.value));
-            // this.props.history.push(`/movies`);
-            console.log(this.props);
+            this.props.history.push({
+              search: `?searchQuery=${this.input.current.value}/${qs.stringify({
+                sortBy: "release_date",
+                searchBy: "title",
+              })}`,
+            });
           }}
         >
           <input

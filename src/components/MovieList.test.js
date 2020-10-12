@@ -13,7 +13,7 @@ let movies = {
       overview: "film description",
       runtime: "154",
       rating: "4.2",
-      genre: "Action & Adventure",
+      genres: "Action & Adventure",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -26,7 +26,7 @@ let movies = {
       overview: "film description",
       runtime: "160",
       rating: "4.0",
-      genre: "Action & Adventure",
+      genres: "Action & Adventure",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -39,7 +39,7 @@ let movies = {
       overview: "film description",
       runtime: "168",
       rating: "4.7",
-      genre: "Science fiction",
+      genres: "Science fiction",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -52,7 +52,7 @@ let movies = {
       overview: "film description",
       runtime: "170",
       rating: "4.6",
-      genre: "Science fiction",
+      genres: "Science fiction",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -65,7 +65,7 @@ let movies = {
       overview: "film description",
       runtime: "158",
       rating: "4.8",
-      genre: "Comedy & Thriller",
+      genres: "Comedy & Thriller",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -78,7 +78,7 @@ let movies = {
       overview: "film description",
       runtime: "165",
       rating: "4.1",
-      genre: "Comedy & Thriller",
+      genres: "Comedy & Thriller",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -91,7 +91,7 @@ let movies = {
       overview: "film description",
       runtime: "126",
       rating: "4.4",
-      genre: "Action & Adventure",
+      genres: "Action & Adventure",
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium minima quas neque quos eius placeat dignissimos voluptatum sequi modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, consequatur? Dolorum et nam quod aperiam, numquam consequatur excepturi debitis reiciendis.",
     },
@@ -100,10 +100,8 @@ let movies = {
 
 test("movie render", () => {
   let onclick = jest.fn();
-  render(
-      <MovieList movies={movies.mData} onChange={onclick} />
-  );
-  expect(screen.getByText(movies.mData[0].title)).toBeInTheDocument()
+  render(<MovieList movies={movies.mData} onChange={onclick} />);
+  expect(screen.getByText(movies.mData[0].title)).toBeInTheDocument();
   fireEvent.click(screen.getByText(movies.mData[0].title));
   expect(onclick).toHaveBeenCalledWith(movies.mData[0]);
 });

@@ -46,7 +46,7 @@ class Searcher extends React.Component {
               ...fromURL,
               searchQuery: this.input.current.value,
             };
-            const params = qs.stringify({ ...fromURL, ...currentParams });
+            const params = qs.stringify(currentParams);
             this.props.history.push({
               search: `?${params}`,
             });

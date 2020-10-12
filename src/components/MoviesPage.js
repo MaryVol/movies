@@ -61,7 +61,7 @@ class MoviesPage extends React.Component {
                   ...fromURL,
                   sortBy: sortBy,
                 };
-                const params = { ...fromURL, ...currentParams };
+                const params = qs.stringify({ ...fromURL, ...currentParams });
                 this.props.history.push({
                   search: `?${params}`,
                 });

@@ -36,18 +36,17 @@ class Searcher extends React.Component {
   }
 
   render() {
-    
     return (
       <div className={styles.searcherWrapper}>
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            const fromURL = qs.parse(this.props.location.search.slice(1))
+            const fromURL = qs.parse(this.props.location.search.slice(1));
             const currentParams = {
               ...fromURL,
               searchQuery: this.input.current.value,
-            }
-            const params = { ...fromURL, ...currentParams }
+            };
+            const params = qs.stringify({ ...fromURL, ...currentParams });
             this.props.history.push({
               search: `?${params}`,
             });

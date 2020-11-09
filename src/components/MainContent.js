@@ -1,55 +1,28 @@
 import React from "react";
-import MovieData from "./movies/movies.json";
 import MoviesPage from "./MoviesPage";
 import MoviePage from "./MoviePage";
+import { connect } from "react-redux";
+import { Route, Switch } from "react-router";
 
 class MainContent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleSort = this.toggleSort.bind(this);
-    this.state = {
-      currentMovie: undefined,
-      movieList: MovieData,
-      sortBy: "title",
-    };
-  }
-  toggleSort(sortBy) {
-    this.setState({
-      movieList: this.state.movieList.slice().sort((a, b) => {
-        if (a[sortBy] > b[sortBy]) {
-          return -1;
-        } else if (b[sortBy] > a[sortBy]) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }),
-      sortBy: sortBy,
-    });
-  }
-
   render() {
-    const { movieList } = this.state;
-    if (this.state.currentMovie) {
-      return (
-        <MoviePage
-          movie={this.state.currentMovie}
-          onChange={(currentMovie) => this.setState({ currentMovie })}
-          onReturnBack={(currentMovie) =>
-            this.setState({ currentMovie: undefined })
-          }
-        />
-      );
-    }
+    const { movieList } = this.props;
+
     return (
-      <MoviesPage
-        movies={movieList}
-        sortBy={this.state.sortBy}
-        onSortChange={(sortBy) => this.toggleSort(sortBy)}
-        onChange={(currentMovie) => this.setState({ currentMovie })}
-      />
+      <Switch>
+        <Route exact path="/" component={MoviesPage} />
+        <Route exact path="/movie/:movieId" component={MoviePage} />
+      </Switch>
     );
   }
 }
 
-export default MainContent;
+const mapStateToProps = (state) => {
+  return {
+    currentMovie: state.currentMovie,
+    sortBy: state.sortBy,
+    movieList: state.movieList,
+  };
+};
+
+export default connect(mapStateToProps)(MainContent);

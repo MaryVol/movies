@@ -1,6 +1,16 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+a {
+  text-decoration: none;
+  color: #d8d7d7;
+}
+.container h3 {
+  background-color: #545454;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
 .movieWrapper {
   display: flex;
   flex-direction: row;
@@ -13,12 +23,13 @@
   color: #929292;
   margin-bottom: 20px;
   margin-top: 20px;
-  flex-basis: 33%;
-  margin-left: 0;
-  margin-right: 0;
+  flex-basis: 32%;
+  margin-left: 5px;
+  margin-right: 5px;
   justify-content: space-evenly;
   text-align: center;
   cursor: pointer;
+  inline-size: min-content;
 }
 h5 {
   border: 1px #b8b8b8 solid;
@@ -26,7 +37,6 @@ h5 {
   display: inline-block;
   padding: 3px;
   font-weight: 100;
-  margin-left: 10px;
 }
 .footer {
   background-color: #545454;
@@ -42,11 +52,6 @@ h5 {
   height: 333px;
 }
 .movieBageWrapper {
-  background-image: url(../img/bg.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   padding-bottom: 30px;
   padding-top: 10px;
   padding-left: 10px;
@@ -70,13 +75,23 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  line-height: 50px;
+}
+small {
+  display: block;
+  font-weight: 100;
+  font-style: italic;
+  color: #f65160;
 }
 .movieCard .rating {
   border-radius: 50%;
   border: #ffffff 1px solid;
   color: #8db36c;
-  padding: 12px;
-  margin-left: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 7px;
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 .movieCard .number {
   color: #f65261;
@@ -104,7 +119,15 @@ h5 {
 .arrow {
   color: #f65261;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-weight: 100;
   cursor: pointer;
+}
+.similar {
+  color: white;
+  font-weight: 100;
+  font-size: 24px;
+  padding: 10px;
+  border-left: outset;
+  border-color: red;
 }

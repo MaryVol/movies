@@ -2,22 +2,17 @@ import React from "react";
 import styles from "./Header.module.css";
 import Searcher from "./Searcher";
 import Toggle from "./Toggle";
+import { connect } from "react-redux";
+import { toggleSearch } from "../actions";
+import { withRouter } from "react-router";
+import qs from "qs";
 
-let searchByOptions = ["Release date", "Rating"];
+let searchByOptions = [
+  { value: "title", displayName: "Title" },
+  { value: "genres", displayName: "Genre" },
+];
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      names: "Search by",
-      searchBy: "release_date",
-      searchByOptions: [
-        { value: "release_date", displayName: "Release date" },
-        { value: "rating", displayName: "Rating" },
-      ],
-    };
-  }
-
   render() {
     return (
       <header>
@@ -26,12 +21,25 @@ class Header extends React.Component {
             <b>netflix</b>roulette
           </h3>
           <h1>find your movie</h1>
-          <Searcher />
+          <Searcher key={this.props.searchQuery} />
           <Toggle
-            name={this.state.names}
-            options={this.state.searchByOptions}
-            value={this.state.searchBy}
-            onChange={(searchBy) => this.setState({ searchBy })}
+            name="Search by"
+            options={searchByOptions}
+            value={this.props.searchBy}
+            onChange={(searchBy) => {
+              this.props.dispatch(toggleSearch(searchBy));
+              const fromURL = qs.parse(this.props.location.search.slice(1));
+              const currentParams = {
+                ...fromURL,
+                searchBy: searchBy,
+              };
+              const params = qs.stringify(currentParams);
+
+              this.props.history.push({
+                search: `?${params}`,
+              });
+              console.log(this.props)
+            }}
           />
         </div>
       </header>
@@ -39,4 +47,11 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    searchBy: state.searchBy,
+    searchQuery: state.searchQuery,
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(Header));

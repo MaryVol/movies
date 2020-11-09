@@ -1,12 +1,21 @@
 import React from "react";
 import styles from "./infobar.module.css";
+import { connect } from "react-redux";
 
-function Counter() {
-  return (
-    <div className={styles.counterWrapper}>
-      <p>movie found</p>
-    </div>
-  );
+class Counter extends React.Component {
+  render() {
+    return (
+      <div className={styles.counterWrapper}>
+        <p>{this.props.counter} movies found</p>
+      </div>
+    );
+  }
 }
+const mapStateToProps = (state) => {
+  return {
+    counter: state.movieList.length,
+    movieList: [],
+  };
+};
 
-export default Counter;
+export default connect(mapStateToProps)(Counter);
